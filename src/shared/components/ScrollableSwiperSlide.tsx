@@ -6,7 +6,8 @@ interface Props {
 export default function ScrollableSwiperSlide({ children }: Props) {
   const scrollRef = useRef<HTMLDivElement>(null)
 
-  const handleWheel = useCallback((e: WheelEvent) => {
+  const handleScroll = useCallback((e: WheelEvent | TouchEvent) => {
+    console.log('aaa')
     e.stopPropagation()
     if (!scrollRef?.current) {
       return
@@ -14,17 +15,35 @@ export default function ScrollableSwiperSlide({ children }: Props) {
 
     const { scrollHeight, scrollTop, clientHeight } = scrollRef.current
 
-    if (e.deltaY > 0) {
-      // 휠이 아래로
-      const isScrollEnd = scrollHeight - scrollTop === clientHeight
-      if (isScrollEnd) {
-        scrollRef.current.removeEventListener('wheel', handleWheel)
+    if (e instanceof TouchEvent) {
+      if (e.touches[0].clientY > 0) {
+        // 터치가 아래로
+        const isScrollEnd = scrollHeight - scrollTop === clientHeight
+        if (isScrollEnd) {
+          scrollRef.current.removeEventListener('touchmove', handleScroll)
+        }
+      } else if (e.touches[0].clientY < 0) {
+        // 터치가 위로
+        const isScrollTop = scrollTop === 0
+        if (isScrollTop) {
+          scrollRef.current.removeEventListener('touchmove', handleScroll)
+        }
       }
-    } else if (e.deltaY < 0) {
-      // 휠이 위로
-      const isScrollTop = scrollTop === 0
-      if (isScrollTop) {
-        scrollRef.current.removeEventListener('wheel', handleWheel)
+    }
+
+    if (e instanceof WheelEvent) {
+      if (e.deltaY > 0) {
+        // 휠이 아래로
+        const isScrollEnd = scrollHeight - scrollTop === clientHeight
+        if (isScrollEnd) {
+          scrollRef.current.removeEventListener('wheel', handleScroll)
+        }
+      } else if (e.deltaY < 0) {
+        // 휠이 위로
+        const isScrollTop = scrollTop === 0
+        if (isScrollTop) {
+          scrollRef.current.removeEventListener('wheel', handleScroll)
+        }
       }
     }
   }, [])
@@ -36,11 +55,15 @@ export default function ScrollableSwiperSlide({ children }: Props) {
       const onIntersect: IntersectionObserverCallback = (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            scrollRef.current?.addEventListener('wheel', handleWheel, {
+            scrollRef.current?.addEventListener('wheel', handleScroll, {
+              passive: false,
+            })
+            scrollRef.current?.addEventListener('touchmove', handleScroll, {
               passive: false,
             })
           } else {
-            scrollRef.current?.removeEventListener('wheel', handleWheel)
+            scrollRef.current?.removeEventListener('wheel', handleScroll)
+            scrollRef.current?.removeEventListener('touchmove', handleScroll)
           }
         })
       }
@@ -51,7 +74,7 @@ export default function ScrollableSwiperSlide({ children }: Props) {
     return () => {
       observer?.disconnect()
     }
-  }, [scrollRef, handleWheel])
+  }, [scrollRef, handleScroll])
 
   return (
     <>
