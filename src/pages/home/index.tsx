@@ -1,20 +1,15 @@
-import { useEffect } from 'react'
+// import { Mousewheel, Pagination } from 'swiper'
+// import { Swiper, SwiperSlide } from 'swiper/react'
 
-import { Mousewheel, Pagination } from 'swiper'
-import { Swiper, SwiperSlide } from 'swiper/react'
+import Vote from '@/home/Vote'
 
-import { getVoteOptions } from '@/api/vote'
-import Intro from '@/home/Intro'
-import ScrollableSwiperSlide from '@/shared/components/ScrollableSwiperSlide'
+// import Intro from '@/home/Intro'
+// import ScrollableSwiperSlide from '@/shared/components/ScrollableSwiperSlide'
 
 export default function Home() {
-  useEffect(() => {
-    getVoteOptions().then(console.log)
-  }, [])
-
   return (
     <>
-      <Swiper
+      {/* <Swiper
         direction={'vertical'}
         slidesPerView="auto"
         spaceBetween={30}
@@ -38,7 +33,8 @@ export default function Home() {
         <SwiperSlide>Slide 7</SwiperSlide>
         <SwiperSlide>Slide 8</SwiperSlide>
         <SwiperSlide>Slide 9</SwiperSlide>
-      </Swiper>
+      </Swiper> */}
+      <Vote />
     </>
   )
 }

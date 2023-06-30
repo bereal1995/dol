@@ -1,4 +1,5 @@
 import { supabase } from '@/lib/supabase'
+import { Database } from '@/types/supabase'
 
 export const fetchPolls = async (id = '1') => {
   const { data, error } = await supabase.from('polls').select('id')
@@ -6,12 +7,7 @@ export const fetchPolls = async (id = '1') => {
   return data
 }
 
-interface GetVoteOptions {
-  id: number
-  poll_id: number
-  title: string
-  description: string[]
-}
+export type TVoteOption = Database['public']['Tables']['options']['Row']
 export const getVoteOptions = async () => {
   const { data: options, error } = await supabase
     .from('options')
@@ -23,14 +19,14 @@ export const getVoteOptions = async () => {
 
 export const postVote = async ({
   optionId,
-  voteId,
+  pollId,
 }: {
   optionId: number
-  voteId: number
+  pollId: number
 }) => {
   const { data, error } = await supabase
     .from('votes')
-    .insert([{ option_id: optionId, poll_id: voteId }])
+    .insert([{ option_id: optionId, poll_id: pollId }])
   if (error) throw error
   return data
 }
