@@ -24,15 +24,18 @@ export default function Vote() {
     })
   }
 
-  useEffect(() => {
+  const initFetch = async () => {
     const hasVoted = getLocalData(HAS_VOTED_LOCAL_DATA_KEY)
     if (hasVoted) {
       setHasVoted(true)
     }
 
-    getVoteOptions().then((res) => {
-      setVoteOptions(res)
-    })
+    const voteOptions = await getVoteOptions()
+    setVoteOptions(voteOptions)
+  }
+
+  useEffect(() => {
+    initFetch()
   }, [])
 
   return (
