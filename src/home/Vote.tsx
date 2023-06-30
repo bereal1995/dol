@@ -1,12 +1,22 @@
 import { useEffect, useState } from 'react'
 
 import { getVoteOptions, postVote, TVoteOption } from '@/api/vote'
+import { HAS_VOTED_LOCAL_DATA_KEY } from '@/home/constants'
+import { getLocalData, setLocalData } from '@/utils'
 
 export default function Vote() {
   const [voteOptions, setVoteOptions] = useState<TVoteOption[]>()
+  const [hasVoted, setHasVoted] = useState<boolean>(false)
 
   const handleClickVoteButton = async (voteOption: TVoteOption) => {
     const { id: optionId, poll_id: pollId } = voteOption
+
+    if (hasVoted) {
+      return
+    }
+
+    setLocalData(HAS_VOTED_LOCAL_DATA_KEY, true)
+    setHasVoted(true)
 
     await postVote({
       optionId,
@@ -15,6 +25,11 @@ export default function Vote() {
   }
 
   useEffect(() => {
+    const hasVoted = getLocalData(HAS_VOTED_LOCAL_DATA_KEY)
+    if (hasVoted) {
+      setHasVoted(true)
+    }
+
     getVoteOptions().then((res) => {
       setVoteOptions(res)
     })
@@ -30,6 +45,7 @@ export default function Vote() {
               key={id}
               className="p-[10px] border rounded-[5px]"
               onClick={() => handleClickVoteButton(voteOption)}
+              disabled={hasVoted}
             >
               <div>{title}</div>
               <div>
