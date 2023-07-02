@@ -13,8 +13,8 @@ export default function SectionItem({
     <div className="self-center p-[20px]">
       <h3 className="mb-[10px] font-semibold">{title}</h3>
       <div>
-        {description.map((line, index) => (
-          <p key={index}>{line}</p>
+        {description.map((desc) => (
+          <p key={desc}>{desc}</p>
         ))}
       </div>
     </div>

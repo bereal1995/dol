@@ -8,13 +8,13 @@ interface Props {
 export default function SectionIntro({ content }: Props) {
   const { title, description } = content
   return (
-    <>
+    <div>
       <SectionTitle>{title}</SectionTitle>
       <div>
-        {description.map((line, index) => (
-          <p key={index}>{line}</p>
+        {description.map((desc) => (
+          <p key={desc}>{desc}</p>
         ))}
       </div>
-    </>
+    </div>
   )
 }

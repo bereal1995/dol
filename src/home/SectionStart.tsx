@@ -13,7 +13,7 @@ export default function SectionStart({ content }: Props) {
       <SectionTitle>{title}</SectionTitle>
       <div className="flex flex-col gap-[30px]">
         {items.map((item) => (
-          <SectionItem key={title} {...item} />
+          <SectionItem key={item.title} {...item} />
         ))}
       </div>
     </div>
