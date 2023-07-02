@@ -1,18 +1,12 @@
 import { supabase } from '@/lib/supabase'
 import { Database } from '@/types/supabase'
 
-export const fetchPolls = async (id = '1') => {
-  const { data, error } = await supabase.from('polls').select('id')
-  if (error) throw error
-  return data
-}
-
 export type TVoteOption = Database['public']['Tables']['options']['Row']
-export const getVoteOptions = async () => {
+export const getVoteOptions = async (pollId = '1') => {
   const { data: options, error } = await supabase
     .from('options')
     .select('*')
-    .eq('poll_id', '1')
+    .eq('poll_id', pollId)
   if (error) throw error
   return options
 }
