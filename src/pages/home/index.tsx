@@ -11,6 +11,7 @@ import SectionIntro from '@/home/SectionIntro'
 import SectionPadlet from '@/home/SectionPadlet'
 import SectionStart from '@/home/SectionStart'
 import Logo from '@/shared/components/Logo'
+import ScrollMotion from '@/shared/components/ScrollMotion'
 import Spacing from '@/shared/components/Spacing'
 
 export default function Home() {
@@ -18,6 +19,8 @@ export default function Home() {
     <div className="px-[60px]">
       <Logo />
       <SectionIntro content={SECTION_INTRO_CONTENT} />
+      <Spacing size={50} />
+      <ScrollMotion />
       <Spacing size={50} />
       <SectionStart content={SECTION_START_CONTENT} />
       <Spacing size={50} />

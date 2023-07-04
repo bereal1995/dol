@@ -1,6 +1,8 @@
 import styled from '@emotion/styled'
 import { motion } from 'framer-motion'
 
+import { colors } from '@/shared/theme/colors'
+
 const icon = {
   hidden: {
     opacity: 0,
@@ -44,7 +46,7 @@ const Container = styled.div`
   overflow: hidden;
   background: rgba(255, 255, 255, 0.2);
   border-radius: 5px;
-  background-color: #5b44ea;
+  background-color: ${colors.primary};
 
   .item {
     width: 56%;
