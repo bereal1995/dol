@@ -7,19 +7,3 @@ body {
   position: relative;
   height: 100%;
 }
-
-
-.swiper {
-  width: 100%;
-  height: 100%;
-}
-
-.swiper-slide {
-  overflow: auto;
-  /* Center slide text vertically */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 30px;
-  touch-action: pan-x;
-}

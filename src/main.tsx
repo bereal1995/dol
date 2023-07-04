@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 
 import 'tailwindcss/tailwind.css'
-import 'animate.css'
 
 import App from '@/App'
 
