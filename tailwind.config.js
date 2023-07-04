@@ -4,5 +4,13 @@ export default {
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    ({ addUtilities }) => {
+      addUtilities({
+        '.writing-vertical-r': {
+          writingMode: 'vertical-rl',
+        },
+      })
+    },
+  ],
 }

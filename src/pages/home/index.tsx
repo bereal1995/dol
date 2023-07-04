@@ -10,13 +10,13 @@ import SectionFuture from '@/home/SectionFuture'
 import SectionIntro from '@/home/SectionIntro'
 import SectionPadlet from '@/home/SectionPadlet'
 import SectionStart from '@/home/SectionStart'
-import Logo from '@/shared/components/Logo'
+import FixedMenu from '@/shared/components/FixedMenu'
 import Spacing from '@/shared/components/Spacing'
 
 export default function Home() {
   return (
     <div className="p-[20px]">
-      <Logo />
+      <FixedMenu />
       <SectionIntro content={SECTION_INTRO_CONTENT} />
       <Spacing size={50} />
       <SectionStart content={SECTION_START_CONTENT} />
