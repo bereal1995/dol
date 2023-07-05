@@ -71,7 +71,7 @@ export default function ScrollMotion() {
           </defs>
           <image
             clipPath="url(#shape2)"
-            xlinkHref="http://via.placeholder.com/300x300"
+            xlinkHref="https://picsum.photos/1000/715"
             x="0"
             y="0"
             width="1000"
