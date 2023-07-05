@@ -15,10 +15,9 @@ export default function ScrollMotion() {
   const { scrollYProgress } = useScroll()
 
   useMotionValueEvent(scrollYProgress, 'change', (latest) => {
-    const dudu = 1 + latest * 10
-    console.log('Page scroll: ', dudu)
-    console.log('latest: ', latest)
-    setDuration(dudu)
+    // 범위 1 ~ 2
+    const newDuration = 2 - Math.abs(latest - 0.5) * 1
+    setDuration(newDuration)
   })
 
   useEffect(() => {
