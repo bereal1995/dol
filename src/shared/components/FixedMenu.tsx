@@ -2,8 +2,8 @@ import Logo from '@/shared/components/Logo'
 
 export default function FixedMenu() {
   return (
-    <header className="fixed top-0 left-0 z-[100] w-[100vw] h-[100vh]">
-      <h1>
+    <header>
+      <h1 className="fixed top-0 left-0 z-[100]">
         <a
           href="#self"
           className="flex items-center justify-center w-[60px] h-[60px]"
@@ -12,7 +12,7 @@ export default function FixedMenu() {
         </a>
       </h1>
 
-      <nav className="flex flex-col justify-between h-[100vh] fixed top-0 right-0 border-l-[1px] bg-[#fff]">
+      <nav className="fixed top-0 right-0 z-[100] flex flex-col justify-between h-[100vh] fixed top-0 right-0 border-l-[1px] bg-[#fff]">
         <ul className="flex-col gap-[100px] px-[10px] py-[20px]">
           {indexs.map((item, index) => {
             return (
