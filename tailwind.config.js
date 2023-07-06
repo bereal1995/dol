@@ -11,5 +11,13 @@ export default {
       // example: noto-kr: ['Noto Sans KR', 'sans-serif'],
     },
   },
-  plugins: [],
+  plugins: [
+    ({ addUtilities }) => {
+      addUtilities({
+        '.writing-vertical-r': {
+          writingMode: 'vertical-rl',
+        },
+      })
+    },
+  ],
 }
