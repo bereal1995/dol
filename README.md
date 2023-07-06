@@ -16,7 +16,6 @@
 - tailwindcss
 - typescript
 - supabase
-- swiper
 
 ## 설치 및 실행
 
