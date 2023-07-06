@@ -1,29 +1,21 @@
 import {
-  SECTION_CHANGE_CONTENT,
   SECTION_FUTURE_CONTENT,
   SECTION_INTRO_CONTENT,
   SECTION_PADLET_CONTENT,
-  SECTION_START_CONTENT,
 } from '@/home/constants'
-import SectionChange from '@/home/SectionChange'
 import SectionFuture from '@/home/SectionFuture'
 import SectionIntro from '@/home/SectionIntro'
 import SectionPadlet from '@/home/SectionPadlet'
-import SectionStart from '@/home/SectionStart'
 import FixedMenu from '@/shared/components/FixedMenu'
 import Intro from '@/shared/components/Intro'
 import Spacing from '@/shared/components/Spacing'
 
 export default function Home() {
   return (
-    <div className="p-[20px]">
+    <div className="pl-[60px] pr-[68px]">
       <FixedMenu />
       <Intro />
       <SectionIntro content={SECTION_INTRO_CONTENT} />
-      <Spacing size={50} />
-      <SectionStart content={SECTION_START_CONTENT} />
-      <Spacing size={50} />
-      <SectionChange content={SECTION_CHANGE_CONTENT} />
       <Spacing size={50} />
       <SectionFuture content={SECTION_FUTURE_CONTENT} />
       <Spacing size={50} />
