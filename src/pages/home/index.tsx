@@ -1,6 +1,7 @@
 import { SECTION_FUTURE_CONTENT, SECTION_INTRO_CONTENT } from '@/home/constants'
 import SectionFuture from '@/home/SectionFuture'
 import SectionIntro from '@/home/SectionIntro'
+import SectionLinkList from '@/home/SectionLinkList'
 import SectionPadlet from '@/home/SectionPadlet'
 import FixedMenu from '@/shared/components/FixedMenu'
 import Intro from '@/shared/components/Intro'
@@ -15,7 +16,9 @@ export default function Home() {
       <Spacing size={50} />
       <SectionFuture content={SECTION_FUTURE_CONTENT} />
       <Spacing size={50} />
-      <SectionPadlet />
+      <SectionLinkList />
+      <Spacing size={50} />
+      <SectionPadlet content={SECTION_PADLET_CONTENT} />
     </div>
   )
 }
