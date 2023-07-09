@@ -18,7 +18,7 @@ export default function Home() {
       <Spacing size={50} />
       <SectionLinkList />
       <Spacing size={50} />
-      <SectionPadlet content={SECTION_PADLET_CONTENT} />
+      <SectionPadlet />
     </div>
   )
 }
