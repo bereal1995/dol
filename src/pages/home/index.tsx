@@ -6,9 +6,9 @@ import {
 import SectionFuture from '@/home/SectionFuture'
 import SectionIntro from '@/home/SectionIntro'
 import SectionPadlet from '@/home/SectionPadlet'
-import DropCard from '@/shared/components/DropCard'
 import FixedMenu from '@/shared/components/FixedMenu'
 import Intro from '@/shared/components/Intro'
+import Introduction from '@/shared/components/Introduction'
 import Spacing from '@/shared/components/Spacing'
 
 export default function Home() {
@@ -16,8 +16,8 @@ export default function Home() {
     <div>
       <FixedMenu />
       <Intro />
+      <Introduction />
       <SectionIntro content={SECTION_INTRO_CONTENT} />
-      <DropCard />
       <Spacing size={50} />
       <SectionFuture content={SECTION_FUTURE_CONTENT} />
       <Spacing size={50} />
