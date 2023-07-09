@@ -20,18 +20,6 @@ export const SECTION_INTRO_CONTENT: ISectionIntroContent = {
   ],
 }
 
-export interface ISectionFutureContent {
-  title: string
-  description: string[]
-}
-export const SECTION_FUTURE_CONTENT: ISectionFutureContent = {
-  title: '함께 꿈꾸는 창작의 미래',
-  description: [
-    '스테디오는 앞으로도 크리에이터의 창작 활동을 지원하기 위하여 현재 다양한 고민과 시도를 하고 있습니다. 준비하고 있는 다양한 기능을 크게 세가지로 묶었습니다.',
-    '여러가지 물건을 두고 첫번째 생일을 맞이한 아이의 미래를 점쳐보는 돌잡이처럼, 스테디오 앞에 놓인 세 가지의 미래 중 여러분이 가장 꿈꾸는 창작의 미래를 골라주세요.',
-  ],
-}
-
 export interface ISectionPadletContent {
   title: string
   description: string[]
