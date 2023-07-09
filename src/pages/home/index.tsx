@@ -16,6 +16,7 @@ export default function Home() {
       <Spacing size={50} />
       <SectionLinkList />
       <SectionVote />
+      <Spacing size={50} />
       <SectionPadlet />
     </div>
   )
