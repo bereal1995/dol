@@ -10,12 +10,12 @@ import Spacing from '@/shared/components/Spacing'
 export default function Home() {
   return (
     <div className="pl-[60px] pr-[68px]">
-      <SectionVote />
       <FixedMenu />
       <Intro />
       <SectionIntro content={SECTION_INTRO_CONTENT} />
       <Spacing size={50} />
       <SectionLinkList />
+      <SectionVote />
       <SectionPadlet />
     </div>
   )

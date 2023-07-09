@@ -25,15 +25,19 @@ const dimmedVariants: Variants = {
 }
 
 interface Props extends React.HTMLAttributes<HTMLButtonElement> {
-  disabled?: boolean
+  isVoted?: boolean
+  hasVoted?: boolean
   voteOption: TVoteOption
+  onClickButton(): void
   voteItemEnter(cursorText: React.ReactNode): void
   voteItemLeave(): void
 }
 
 export default function VoteListItem({
+  isVoted,
+  hasVoted,
   voteOption,
-  disabled,
+  onClickButton,
   voteItemEnter,
   voteItemLeave,
   ...rest
@@ -41,7 +45,7 @@ export default function VoteListItem({
   const [isHover, setIsHover] = useState(false)
 
   const handleMouseEnter = () => {
-    !disabled && setIsHover(true)
+    !isVoted && setIsHover(true)
     voteItemEnter(<VoteHoverItem {...voteOption} />)
   }
 
@@ -52,20 +56,23 @@ export default function VoteListItem({
 
   return (
     <Container
+      onClick={onClickButton}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       variants={buttonVariants}
       animate={isHover ? 'hover' : 'notHover'}
-      disabled={disabled}
+      disabled={isVoted || hasVoted}
       className="dpk-hover"
       data-hover-text="Hello"
     >
-      <motion.div
-        className="dimmed"
-        variants={dimmedVariants}
-        animate={isHover ? 'hover' : 'notHover'}
-      />
-      <button disabled={disabled} {...rest}>
+      {!isVoted && (
+        <motion.div
+          className="dimmed"
+          variants={dimmedVariants}
+          animate={!hasVoted && isHover ? 'hover' : 'notHover'}
+        />
+      )}
+      <button disabled={isVoted} {...rest}>
         <img src="https://picsum.photos/175/175" alt="" />
       </button>
     </Container>
@@ -79,7 +86,7 @@ const Container = styled(motion.div)<{
   width: 175px;
   height: 175px;
 
-  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
+  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'grab')};
 
   .dimmed {
     position: absolute;
@@ -91,5 +98,11 @@ const Container = styled(motion.div)<{
   button {
     width: 100%;
     height: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 `

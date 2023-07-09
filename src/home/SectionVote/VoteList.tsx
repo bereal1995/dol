@@ -4,7 +4,7 @@ import styled from '@emotion/styled'
 import { motion } from 'framer-motion'
 
 import { getVoteOptions, postVote, TVoteOption } from '@/api/vote'
-import { HAS_VOTED_LOCAL_DATA_KEY } from '@/home/constants'
+import { VOTED_LOCAL_DATA_KEY } from '@/home/constants'
 import VoteListItem from '@/home/SectionVote/VoteListItem'
 import { getLocalData, setLocalData } from '@/utils'
 
@@ -14,17 +14,26 @@ interface Props {
 
 export default function VoteList({ mouse }: Props) {
   const [voteOptions, setVoteOptions] = useState<TVoteOption[]>()
-  const [hasVoted, setHasVoted] = useState<boolean>(false)
+  const [votedData, setVotedData] = useState<{
+    hasVoted: boolean
+    id: number
+  }>()
 
   const handleClickVoteButton = async (voteOption: TVoteOption) => {
     const { id: optionId, poll_id: pollId } = voteOption
 
-    if (hasVoted) {
+    if (votedData) {
       return
     }
 
-    setLocalData(HAS_VOTED_LOCAL_DATA_KEY, true)
-    setHasVoted(true)
+    setLocalData(VOTED_LOCAL_DATA_KEY, {
+      hasVoted: true,
+      id: voteOption.id,
+    })
+    setVotedData({
+      hasVoted: true,
+      id: voteOption.id,
+    })
 
     await postVote({
       optionId,
@@ -33,9 +42,12 @@ export default function VoteList({ mouse }: Props) {
   }
 
   const initFetch = async () => {
-    const hasVoted = getLocalData(HAS_VOTED_LOCAL_DATA_KEY)
-    if (hasVoted) {
-      setHasVoted(true)
+    const votedData = getLocalData(VOTED_LOCAL_DATA_KEY)
+    if (votedData?.hasVoted) {
+      setVotedData({
+        hasVoted: true,
+        id: votedData.id,
+      })
     }
 
     const voteOptions = await getVoteOptions()
@@ -109,13 +121,16 @@ export default function VoteList({ mouse }: Props) {
       >
         <span className="cursorText">{cursorText}</span>
       </motion.div>
-      <div className="flex gap-[70px]">
+      <div className="flex justify-around">
         {voteOptions?.map((voteOption) => {
+          const isVoted = votedData?.id === voteOption.id
+          const hasVoted = votedData?.hasVoted
           return (
             <VoteListItem
               key={voteOption.id}
-              onClick={() => handleClickVoteButton(voteOption)}
-              disabled={hasVoted}
+              onClickButton={() => handleClickVoteButton(voteOption)}
+              isVoted={isVoted}
+              hasVoted={hasVoted}
               voteItemEnter={voteItemEnter}
               voteItemLeave={voteItemLeave}
               voteOption={voteOption}
@@ -128,6 +143,8 @@ export default function VoteList({ mouse }: Props) {
 }
 
 const Container = styled.div`
+  width: 100%;
+  max-width: 1200px;
   .dol-cursor {
     position: fixed;
     z-index: 100;

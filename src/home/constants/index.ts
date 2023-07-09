@@ -1,4 +1,4 @@
-export const HAS_VOTED_LOCAL_DATA_KEY = 'hasVoted'
+export const VOTED_LOCAL_DATA_KEY = 'hasVoted'
 
 export interface ISectionIntroContent {
   title: {
