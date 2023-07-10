@@ -1,7 +1,6 @@
 // test
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
-import { OBJLoader } from 'three/addons/loaders/OBJLoader.js'
 
 export default function Intro() {
   return (
@@ -35,7 +34,10 @@ const indexs = [
 
 function ThreeBG() {
   //===================================================== canvas
-  const renderer = new THREE.WebGLRenderer({ alpha: true, antialiase: true })
+  const renderer = new THREE.WebGLRenderer({
+    alpha: true,
+    antialias: true,
+  })
   renderer.setSize(window.innerWidth, window.innerHeight)
   document.body.prepend(renderer.domElement)
 
@@ -69,8 +71,8 @@ function ThreeBG() {
   //===================================================== model
   const loader = new GLTFLoader()
 
-  let mixer
-  let model
+  let mixer: any
+  let model: any
   loader.load('/candy.glb', function (gltf) {
     // gltf.scene.traverse( function( node ) {
     //    if ( node instanceof THREE.Mesh ) {
