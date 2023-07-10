@@ -12,13 +12,13 @@ export default function FixedMenu() {
         </a>
       </h1>
 
-      <nav className="fixed top-0 right-0 z-[100] flex flex-col justify-between h-[100vh] fixed top-0 right-0 border-l-[1px] bg-[#fff]">
+      <nav className="fixed top-0 right-0 z-[100] flex flex-col justify-between h-[100vh] border-l-[1px] bg-[#fff]">
         <ul className="flex-col gap-[100px] px-[10px] py-[20px]">
-          {indexs.map((item, index) => {
+          {navList.map(({ text, targetId }) => {
             return (
-              <li key={index} className="writing-vertical-r mb-[50px]">
-                <a href="#self">
-                  {item.split('\n').map((word) => (
+              <li key={targetId} className="writing-vertical-r mb-[50px]">
+                <a href={`#${targetId}`}>
+                  {text.split('\n').map((word) => (
                     <span key={word} className="flex">
                       {word}
                     </span>
@@ -37,9 +37,21 @@ export default function FixedMenu() {
   )
 }
 
-const indexs = [
-  'intro',
-  'steadio\nintroduction',
-  'vote\nthe future of steadio',
-  'guest\nbook',
-]
+const navList = [
+  {
+    targetId: 'dol-intro',
+    text: 'intro',
+  },
+  {
+    targetId: 'dol-introduction',
+    text: 'steadio\nintroduction',
+  },
+  {
+    targetId: 'dol-vote',
+    text: 'vote\nthe future of steadio',
+  },
+  {
+    targetId: 'dol-comment',
+    text: 'guest\nbook',
+  },
+] as const

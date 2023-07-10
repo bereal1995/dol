@@ -61,10 +61,13 @@ function ParallaxText({ children, baseVelocity = 100 }: ParallaxProps) {
     </ParallaxContainer>
   )
 }
+interface Props {
+  id: string
+}
 
-export default function SectionPadlet() {
+export default function SectionPadlet({ id }: Props) {
   return (
-    <div className="pr-[69px]">
+    <div className="pr-[69px]" id={id}>
       <div>
         <ParallaxText baseVelocity={5}>
           <Icons.BoardTopBanner />

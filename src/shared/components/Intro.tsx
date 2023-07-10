@@ -2,15 +2,22 @@
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
 
-export default function Intro() {
+interface Props {
+  id: string
+}
+
+export default function Intro({ id }: Props) {
   return (
-    <div className="absolute top-0 left-0 flex items-center w-full h-[100vh] pl-[80px]">
+    <div
+      id={id}
+      className="absolute top-0 left-0 flex items-center w-full h-[100vh] pl-[80px]"
+    >
       <ul className="flex flex-col gap-[10px] w-[90%]">
-        {indexs.map(({ subTitle, title }) => (
+        {navList.map(({ subTitle, title, targetId }) => (
           <li key={title} className="flex flex-col gap-[10px]">
             <span>{subTitle}</span>
             <a
-              href="#self"
+              href={`#${targetId}`}
               className="flex w-full border-t-[2px] text-[100px] hover:font-diphylleia hover-text-shadow hover:text-white"
             >
               {title}
@@ -22,15 +29,28 @@ export default function Intro() {
   )
 }
 
-const indexs = [
-  { subTitle: 'intro', title: 'first anniversary' },
-  { subTitle: 'introduction', title: 'steadio!' },
+const navList = [
+  {
+    subTitle: 'intro',
+    title: 'first anniversary',
+    targetId: 'dol-intro',
+  },
+  {
+    subTitle: 'introduction',
+    title: 'steadio!',
+    targetId: 'dol-introduction',
+  },
   {
     subTitle: 'vote',
     title: 'the future of steadio',
+    targetId: 'dol-vote',
   },
-  { subTitle: 'guest\nbook', title: 'congratulate me.' },
-]
+  {
+    subTitle: 'guest\nbook',
+    title: 'congratulate me.',
+    targetId: 'dol-comment',
+  },
+] as const
 
 function ThreeBG() {
   //===================================================== canvas
@@ -71,7 +91,9 @@ function ThreeBG() {
   //===================================================== model
   const loader = new GLTFLoader()
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let mixer: any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let model: any
   loader.load('/candy.glb', function (gltf) {
     // gltf.scene.traverse( function( node ) {

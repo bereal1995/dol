@@ -4,6 +4,10 @@
   height: 100%;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   position: relative;

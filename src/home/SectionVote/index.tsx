@@ -5,7 +5,11 @@ import useMouse from '@react-hook/mouse-position'
 
 import VoteList from '@/home/SectionVote/VoteList'
 
-export default function SectionVote() {
+interface Props {
+  id: string
+}
+
+export default function SectionVote({ id }: Props) {
   const ref = useRef(null)
 
   const mouse = useMouse(ref, {
@@ -14,7 +18,7 @@ export default function SectionVote() {
   })
 
   return (
-    <Container ref={ref}>
+    <Container ref={ref} id={id}>
       <VoteList mouse={mouse} />
     </Container>
   )

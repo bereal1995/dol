@@ -12,8 +12,8 @@ export default function Home() {
   return (
     <div>
       <FixedMenu />
-      <Intro />
-      <div>
+      <Intro id="dol-intro" />
+      <div id="dol-introduction">
         <Introduction />
         <SectionIntro content={SECTION_INTRO_CONTENT} />
         <Spacing size={50} />
@@ -21,9 +21,9 @@ export default function Home() {
         <Spacing size={50} />
         <SectionLinkList />
       </div>
-      <SectionVote />
+      <SectionVote id="dol-vote" />
       <Spacing size={50} />
-      <SectionPadlet />
+      <SectionPadlet id="dol-comment" />
     </div>
   )
 }

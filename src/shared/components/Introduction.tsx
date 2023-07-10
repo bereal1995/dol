@@ -10,6 +10,7 @@ export default function Introduction() {
   const triggerRef = useRef<HTMLDivElement | null>(null)
 
   useLayoutEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const ctx = gsap.context((self: any) => {
       const boxes = self.selector('.card')
 
