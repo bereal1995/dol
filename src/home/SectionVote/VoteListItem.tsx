@@ -13,6 +13,10 @@ const buttonVariants: Variants = {
   notHover: {
     scale: 1,
   },
+  isNotVoted: {
+    opacity: 0,
+    translateY: -200,
+  },
 }
 
 const dimmedVariants: Variants = {
@@ -43,6 +47,7 @@ export default function VoteListItem({
   ...rest
 }: Props) {
   const [isHover, setIsHover] = useState(false)
+  const isNotVotedWithHasVoted = hasVoted && !isVoted
 
   const handleMouseEnter = () => {
     !isVoted && setIsHover(true)
@@ -60,10 +65,13 @@ export default function VoteListItem({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       variants={buttonVariants}
-      animate={isHover ? 'hover' : 'notHover'}
+      animate={
+        isNotVotedWithHasVoted ? 'isNotVoted' : isHover ? 'hover' : 'notHover'
+      }
       disabled={isVoted || hasVoted}
       className="dpk-hover"
       data-hover-text="Hello"
+      whileTap={{ scale: hasVoted ? 1 : 0.9 }}
     >
       {!isVoted && (
         <motion.div
