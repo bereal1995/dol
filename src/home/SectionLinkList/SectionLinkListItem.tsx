@@ -1,22 +1,11 @@
-import { useState } from 'react'
 import { BsArrowRight } from 'react-icons/bs'
 
 import styled from '@emotion/styled'
-import { motion, Variants } from 'framer-motion'
 interface Props {
   text: string
   imgSrc: string
   date: string
   link: string
-}
-
-const linkVariants: Variants = {
-  hover: {
-    width: '100%',
-  },
-  notHover: {
-    width: 0,
-  },
 }
 
 export default function SectionLinkListItem({
@@ -25,10 +14,8 @@ export default function SectionLinkListItem({
   date,
   link,
 }: Props) {
-  const [isHover, setIsHover] = useState(false)
-
   return (
-    <Container>
+    <Container href={link} target="_blank" rel="noopener noreferrer">
       <div>
         <img src={imgSrc} alt="" />
       </div>
@@ -36,17 +23,7 @@ export default function SectionLinkListItem({
         <TextContent>
           <TextItem>{text}</TextItem>
           <div>
-            <a
-              href={link}
-              onMouseEnter={() => setIsHover(true)}
-              onMouseLeave={() => setIsHover(false)}
-            >
-              <BsArrowRight />
-              <motion.div
-                animate={isHover ? 'hover' : 'notHover'}
-                variants={linkVariants}
-              />
-            </a>
+            <BsArrowRight />
           </div>
         </TextContent>
         <TextDate>{date}</TextDate>
@@ -55,10 +32,11 @@ export default function SectionLinkListItem({
   )
 }
 
-const Container = styled.div`
+const Container = styled.a`
   display: flex;
   gap: 15px;
-  padding: 10px 0 40px;
+  padding-top: 10px;
+  margin-bottom: 40px;
   border-top: 1px solid #000;
 `
 const TextContainer = styled.div`
@@ -72,17 +50,9 @@ const TextContent = styled.div`
   display: flex;
   justify-content: space-between;
 
-  a {
-    display: block;
-    svg {
-      width: 25px;
-      height: 25px;
-    }
-    > div {
-      width: 0;
-      height: 2px;
-      background-color: #000;
-    }
+  svg {
+    width: 25px;
+    height: 25px;
   }
 `
 
