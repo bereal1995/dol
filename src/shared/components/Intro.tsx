@@ -1,17 +1,73 @@
 // test
+import { useState } from 'react'
+
+import styled from '@emotion/styled'
+import { motion } from 'framer-motion'
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
+
+import { useCursorItem } from '@/shared/hooks/useCursorItem'
 
 interface Props {
   id: string
 }
 
 export default function Intro({ id }: Props) {
+  const { ref, cursorVariant, mousePosition, setCursorVariant } =
+    useCursorItem()
+  const [hoverItem, setHoverItem] = useState<React.ReactNode>()
+
+  const variants = {
+    default: {
+      opacity: 0,
+      width: 300,
+      height: 400,
+      backgroundColor: 'transparent',
+      x: mousePosition.x,
+      y: mousePosition.y,
+    },
+    linkItem: {
+      opacity: 1,
+      backgroundColor: 'transparent',
+      width: 'auto',
+      height: 'auto',
+      maxWidth: 300,
+      fontSize: '18px',
+      x: mousePosition.x - 32,
+      y: mousePosition.y - 32,
+      textShadow: '0 0 10px rgba(0, 0, 0, 0.5)',
+      color: '#fff',
+    },
+  }
+
+  function handleItemEnter(hoverItem: React.ReactNode) {
+    setCursorVariant('linkItem')
+    setHoverItem(hoverItem)
+  }
+
+  function handleItemLeave() {
+    setCursorVariant('default')
+    setHoverItem('')
+  }
+
   return (
-    <div
+    <Container
+      ref={ref}
       id={id}
       className="absolute top-0 left-0 flex items-center w-full h-[100vh] pl-[80px]"
     >
+      <motion.div
+        variants={variants}
+        className="dol-cursor"
+        animate={cursorVariant}
+        transition={{
+          type: 'spring',
+          stiffness: 500,
+          damping: 28,
+        }}
+      >
+        <span className="cursorText">{hoverItem}</span>
+      </motion.div>
       <ul className="flex flex-col gap-[10px] w-[90%]">
         {navList.map(({ subTitle, title, targetId }) => (
           <li key={title} className="flex flex-col gap-[10px]">
@@ -19,15 +75,38 @@ export default function Intro({ id }: Props) {
             <a
               href={`#${targetId}`}
               className="flex w-full border-t-[2px] text-[100px] hover:font-diphylleia hover-text-shadow hover:text-white"
+              onMouseEnter={() =>
+                handleItemEnter(
+                  <img className="w-full" src="/sample.png" alt="" />,
+                )
+              }
+              onMouseLeave={handleItemLeave}
             >
               {title}
             </a>
           </li>
         ))}
       </ul>
-    </div>
+    </Container>
   )
 }
+
+const Container = styled.div`
+  .dol-cursor {
+    position: fixed;
+    z-index: 100;
+    display: flex;
+    flex-flow: row;
+    align-content: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    height: 0px;
+    width: 0px;
+    border-radius: 200px;
+    pointer-events: none;
+  }
+`
 
 const navList = [
   {
