@@ -50,6 +50,9 @@ export default function VoteListItem({
   const isNotVotedWithHasVoted = hasVoted && !isVoted
 
   const handleMouseEnter = () => {
+    if (isNotVotedWithHasVoted) {
+      return
+    }
     !isVoted && setIsHover(true)
     voteItemEnter(<VoteHoverItem {...voteOption} />)
   }
@@ -61,17 +64,17 @@ export default function VoteListItem({
 
   return (
     <Container
-      onClick={onClickButton}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      disabled={isVoted || hasVoted}
+      isNotVotedWithHasVoted={isNotVotedWithHasVoted}
       variants={buttonVariants}
       animate={
         isNotVotedWithHasVoted ? 'isNotVoted' : isHover ? 'hover' : 'notHover'
       }
-      disabled={isVoted || hasVoted}
-      className="dpk-hover"
-      data-hover-text="Hello"
       whileTap={{ scale: hasVoted ? 1 : 0.9 }}
+      transition={{ duration: 0.8 }}
+      onClick={onClickButton}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       {!isVoted && (
         <motion.div
@@ -89,12 +92,17 @@ export default function VoteListItem({
 
 const Container = styled(motion.div)<{
   disabled?: boolean
+  isNotVotedWithHasVoted?: boolean
 }>`
   position: relative;
   width: 300px;
   height: 300px;
 
-  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'grab')};
+  cursor: ${({ disabled, isNotVotedWithHasVoted }) => {
+    if (isNotVotedWithHasVoted) return 'auto'
+    if (disabled) return 'not-allowed'
+    return 'grab'
+  }};
 
   .dimmed {
     position: absolute;
