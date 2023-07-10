@@ -9,15 +9,25 @@ import VoteListItem from '@/home/SectionVote/VoteListItem'
 import { getLocalData, setLocalData } from '@/utils'
 
 interface Props {
-  mouse: any
+  mousePosition: {
+    x: number
+    y: number
+  }
+  cursorVariant: string
+  setCursorVariant: (variant: string) => void
 }
 
-export default function VoteList({ mouse }: Props) {
+export default function VoteList({
+  cursorVariant,
+  mousePosition,
+  setCursorVariant,
+}: Props) {
   const [voteOptions, setVoteOptions] = useState<TVoteOption[]>()
   const [votedData, setVotedData] = useState<{
     hasVoted: boolean
     id: number
   }>()
+  const [cursorText, setCursorText] = useState<React.ReactNode>()
 
   const handleClickVoteButton = async (voteOption: TVoteOption) => {
     const { id: optionId, poll_id: pollId } = voteOption
@@ -54,28 +64,14 @@ export default function VoteList({ mouse }: Props) {
     setVoteOptions(voteOptions)
   }
 
-  const [cursorText, setCursorText] = useState<React.ReactNode>('')
-  const [cursorVariant, setCursorVariant] = useState('default')
-
-  let mouseXPosition = 0
-  let mouseYPosition = 0
-
-  if (mouse.x !== null) {
-    mouseXPosition = mouse.clientX ?? 0
-  }
-
-  if (mouse.y !== null) {
-    mouseYPosition = mouse.clientY ?? 0
-  }
-
   const variants = {
     default: {
       opacity: 0,
       height: 1,
       width: 200,
       backgroundColor: 'transparent',
-      x: mouseXPosition,
-      y: mouseYPosition,
+      x: mousePosition.x,
+      y: mousePosition.y,
     },
     voteItem: {
       opacity: 1,
@@ -84,17 +80,11 @@ export default function VoteList({ mouse }: Props) {
       width: 'auto',
       maxWidth: '200px',
       fontSize: '18px',
-      x: mouseXPosition - 32,
-      y: mouseYPosition - 32,
+      x: mousePosition.x - 32,
+      y: mousePosition.y - 32,
       textShadow: '0 0 10px rgba(0, 0, 0, 0.5)',
       color: '#fff',
     },
-  }
-
-  const spring = {
-    type: 'spring',
-    stiffness: 500,
-    damping: 28,
   }
 
   function voteItemEnter(cursorText: React.ReactNode) {
@@ -117,7 +107,11 @@ export default function VoteList({ mouse }: Props) {
         variants={variants}
         className="dol-cursor"
         animate={cursorVariant}
-        transition={spring}
+        transition={{
+          type: 'spring',
+          stiffness: 500,
+          damping: 28,
+        }}
       >
         <span className="cursorText">{cursorText}</span>
       </motion.div>

@@ -1,25 +1,23 @@
-import { useRef } from 'react'
-
 import styled from '@emotion/styled'
-import useMouse from '@react-hook/mouse-position'
 
 import VoteList from '@/home/SectionVote/VoteList'
+import { useCursorItem } from '@/shared/hooks/useCursorItem'
 
 interface Props {
   id: string
 }
 
 export default function SectionVote({ id }: Props) {
-  const ref = useRef(null)
-
-  const mouse = useMouse(ref, {
-    enterDelay: 100,
-    leaveDelay: 100,
-  })
+  const { ref, cursorVariant, mousePosition, setCursorVariant } =
+    useCursorItem()
 
   return (
     <Container ref={ref} id={id}>
-      <VoteList mouse={mouse} />
+      <VoteList
+        mousePosition={mousePosition}
+        cursorVariant={cursorVariant}
+        setCursorVariant={setCursorVariant}
+      />
     </Container>
   )
 }
