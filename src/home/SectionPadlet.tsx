@@ -64,8 +64,8 @@ function ParallaxText({ children, baseVelocity = 100 }: ParallaxProps) {
 
 export default function SectionPadlet() {
   return (
-    <div className="bg-black">
-      <div className="ml-[-60px]">
+    <div className="pr-[69px]">
+      <div>
         <ParallaxText baseVelocity={5}>
           <Icons.BoardTopBanner />
         </ParallaxText>

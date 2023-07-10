@@ -73,7 +73,7 @@ export default function VoteListItem({
         />
       )}
       <button disabled={isVoted} {...rest}>
-        <img src="https://picsum.photos/175/175" alt="" />
+        <img src="https://picsum.photos/300/300" alt="" />
       </button>
     </Container>
   )
@@ -83,8 +83,8 @@ const Container = styled(motion.div)<{
   disabled?: boolean
 }>`
   position: relative;
-  width: 175px;
-  height: 175px;
+  width: 300px;
+  height: 300px;
 
   cursor: ${(props) => (props.disabled ? 'not-allowed' : 'grab')};
 

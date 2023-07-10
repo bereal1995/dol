@@ -13,10 +13,14 @@ export default function Home() {
     <div>
       <FixedMenu />
       <Intro />
-      <Introduction />
-      <SectionIntro content={SECTION_INTRO_CONTENT} />
-      <Spacing size={50} />
-      <SectionLinkList />
+      <div>
+        <Introduction />
+        <SectionIntro content={SECTION_INTRO_CONTENT} />
+        <Spacing size={50} />
+        <SectionIntro content={SECTION_INTRO_CONTENT} />
+        <Spacing size={50} />
+        <SectionLinkList />
+      </div>
       <SectionVote />
       <Spacing size={50} />
       <SectionPadlet />

@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion'
+
 import { ISectionIntroContent } from '@/home/constants'
 
 interface Props {
@@ -7,18 +9,27 @@ interface Props {
 export default function SectionIntro({ content }: Props) {
   const { title, description } = content
   return (
-    <div className="pr-[100px]">
-      <div className="mb-[60px]">
+    <div className="pl-[60px] pr-[100px]">
+      <motion.div
+        className="mb-[60px] opacity-0"
+        whileInView={{
+          opacity: 1,
+        }}
+        transition={{
+          delay: 0.2,
+          duration: 0.5,
+        }}
+      >
         <img
           src="https://picsum.photos/920/360"
           alt=""
           className="block w-full"
         />
-      </div>
+      </motion.div>
       <div className="flex justify-between items-end gap-[20%]">
         <h2 className="relative font-bold text-[40px]">
           <span>
-            <span className="font-serif">{title.left}</span>
+            <span className="font-diphylleia">{title.left}</span>
             <span className="font-sans">{title.right}</span>
           </span>
           <span className="absolute left-0 bottom-[-14px] text-[10px] font-black">
