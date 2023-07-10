@@ -5,13 +5,15 @@ import SectionPadlet from '@/home/SectionPadlet'
 import SectionVote from '@/home/SectionVote'
 import FixedMenu from '@/shared/components/FixedMenu'
 import Intro from '@/shared/components/Intro'
+import Introduction from '@/shared/components/Introduction'
 import Spacing from '@/shared/components/Spacing'
 
 export default function Home() {
   return (
-    <div className="pl-[60px] pr-[68px]">
+    <div>
       <FixedMenu />
       <Intro />
+      <Introduction />
       <SectionIntro content={SECTION_INTRO_CONTENT} />
       <Spacing size={50} />
       <SectionLinkList />
