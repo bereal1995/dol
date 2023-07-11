@@ -1,6 +1,8 @@
+import { useRef } from 'react'
 import { BsArrowRight } from 'react-icons/bs'
 
 import styled from '@emotion/styled'
+import { motion, useInView } from 'framer-motion'
 interface Props {
   text: string
   imgSrc: string
@@ -14,30 +16,52 @@ export default function SectionLinkListItem({
   date,
   link,
 }: Props) {
+  const ref = useRef<HTMLAnchorElement>(null)
+  const isInView = useInView(ref, { once: true })
+
   return (
-    <Container href={link} target="_blank" rel="noopener noreferrer">
-      <div>
-        <img src={imgSrc} alt="" />
-      </div>
-      <TextContainer>
-        <TextContent>
-          <TextItem>{text}</TextItem>
-          <div>
-            <BsArrowRight />
-          </div>
-        </TextContent>
-        <TextDate>{date}</TextDate>
-      </TextContainer>
-    </Container>
+    <>
+      <MotionLine
+        style={{
+          transformOrigin: 'left',
+          transform: isInView ? 'scaleX(1)' : 'scaleX(0)',
+          transition: 'all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s',
+        }}
+      />
+      <Container
+        ref={ref}
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div>
+          <img src={imgSrc} alt="" />
+        </div>
+        <TextContainer>
+          <TextContent>
+            <TextItem>{text}</TextItem>
+            <div>
+              <BsArrowRight />
+            </div>
+          </TextContent>
+          <TextDate>{date}</TextDate>
+        </TextContainer>
+      </Container>
+    </>
   )
 }
+
+const MotionLine = styled(motion.div)`
+  width: 100%;
+  height: 1px;
+  background-color: #000;
+`
 
 const Container = styled.a`
   display: flex;
   gap: 15px;
   padding-top: 10px;
   margin-bottom: 40px;
-  border-top: 1px solid #000;
 `
 const TextContainer = styled.div`
   display: flex;
