@@ -3,6 +3,8 @@ import { BsArrowRight } from 'react-icons/bs'
 
 import styled from '@emotion/styled'
 import { motion, useInView } from 'framer-motion'
+
+import CurtainMotionImage from '@/shared/components/CurtainMotionImage'
 interface Props {
   text: string
   imgSrc: string
@@ -34,8 +36,8 @@ export default function SectionLinkListItem({
         target="_blank"
         rel="noopener noreferrer"
       >
-        <div>
-          <img src={imgSrc} alt="" />
+        <div className="relative overflow-hidden">
+          <CurtainMotionImage imgSrc={imgSrc} margin="-130px" />
         </div>
         <TextContainer>
           <TextContent>

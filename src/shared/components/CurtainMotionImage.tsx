@@ -3,9 +3,17 @@ import { useRef } from 'react'
 import styled from '@emotion/styled'
 import { motion, useInView, Variants } from 'framer-motion'
 
-export default function SectionIntroThumb() {
+export default function CurtainMotionImage({
+  className,
+  imgSrc = 'https://picsum.photos/920/360',
+  margin,
+}: {
+  imgSrc?: string
+  className?: string
+  margin?: string
+}) {
   const ref = useRef<HTMLImageElement>(null)
-  const isInView = useInView(ref, { once: true })
+  const isInView = useInView(ref, { once: true, margin })
 
   const variants: Variants = {
     hidden: {
@@ -17,7 +25,7 @@ export default function SectionIntroThumb() {
   }
 
   return (
-    <motion.div className="relative overflow-hidden mb-[60px]">
+    <motion.div className={className}>
       <DimmedOverlay
         variants={variants}
         initial="hidden"
@@ -28,12 +36,7 @@ export default function SectionIntroThumb() {
           delay: 0.4,
         }}
       />
-      <img
-        ref={ref}
-        src="https://picsum.photos/920/360"
-        alt=""
-        className="block w-full"
-      />
+      <img ref={ref} src={imgSrc} alt="" className="block w-full" />
     </motion.div>
   )
 }
