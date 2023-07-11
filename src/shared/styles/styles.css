@@ -13,8 +13,57 @@ body {
   position: relative;
   height: 100%;
   font-family: 'Noto Sans KR', sans-serif;
+  cursor: none;
+}
+
+::selection {
+  background: #7e69fe;
+  color: #ffffff;
 }
 
 .hover-text-shadow:hover {
+  color: #ffffff;
   text-shadow: -1px 0 #000000, 0 1px #000000, 1px 0 #000000, 0 -1px #000000;
+}
+
+.text-shadow {
+  color: #ffffff;
+  text-shadow: -1px 0 #000000, 0 1px #000000, 1px 0 #000000, 0 -1px #000000;
+}
+
+.text-shiny {
+  text-shadow: 0 0 15px #fcfcfc;
+}
+
+/* cursor custom */
+.cursor {
+  pointer-events: none;
+  width: 56px;
+  border-radius: 0;
+  aspect-ratio: 1;
+  position: fixed;
+  background: #7e69fe;
+  display: grid;
+  place-items: center;
+  color: hsl(0 0% 100%);
+  top: 0;
+  left: 0;
+  z-index: 100;
+  translate: calc((var(--x, 0) * 1px) - 50%) calc((var(--y, 0) * 1px) - 50%);
+  scale: var(--active, 0);
+  border-radius: 50%;
+  transition: scale 0.2s;
+}
+
+:root {
+  --active: 0.3;
+}
+
+:root:has(a:hover) {
+  --active: 1.5;
+}
+
+.cursor svg {
+  width: 60%;
+  display: none;
 }

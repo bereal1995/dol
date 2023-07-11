@@ -1,8 +1,9 @@
-import { SECTION_INTRO_CONTENT } from '@/home/constants'
+import { SECTION_STEADIO_LAUNCH, SECTION_WHY_STEADIO } from '@/home/constants'
 import SectionIntro from '@/home/SectionIntro'
 import SectionLinkList from '@/home/SectionLinkList'
 import SectionPadlet from '@/home/SectionPadlet'
 import SectionVote from '@/home/SectionVote'
+import Cursor from '@/shared/components/Cursor'
 import FixedMenu from '@/shared/components/FixedMenu'
 import Intro from '@/shared/components/Intro'
 import Introduction from '@/shared/components/Introduction'
@@ -15,15 +16,22 @@ export default function Home() {
       <Intro id="dol-intro" />
       <div id="dol-introduction">
         <Introduction />
-        <SectionIntro content={SECTION_INTRO_CONTENT} />
-        <Spacing size={50} />
-        <SectionIntro content={SECTION_INTRO_CONTENT} />
-        <Spacing size={50} />
+        <Spacing size={300} />
+        <SectionIntro content={SECTION_WHY_STEADIO} />
+        <Spacing size={300} />
+        <SectionIntro content={SECTION_STEADIO_LAUNCH} />
+        <Spacing size={300} />
         <SectionLinkList />
       </div>
+      <Spacing size={200} />
       <SectionVote id="dol-vote" />
-      <Spacing size={50} />
+      <Spacing size={0} />
       <SectionPadlet id="dol-comment" />
+      <Spacing size={50} />
+      <Cursor />
+      <footer className="flex h-[100px] bg-[#181818] items-center justify-center">
+        <p className="text-[#666666]">© 2023 Backpackr All right reserved.</p>
+      </footer>
     </div>
   )
 }

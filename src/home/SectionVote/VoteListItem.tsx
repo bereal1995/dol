@@ -78,7 +78,6 @@ export default function VoteListItem({
     >
       {!isVoted && (
         <motion.div
-          className="dimmed"
           variants={dimmedVariants}
           animate={!hasVoted && isHover ? 'hover' : 'notHover'}
         />
@@ -103,13 +102,6 @@ const Container = styled(motion.div)<{
     if (disabled) return 'not-allowed'
     return 'grab'
   }};
-
-  .dimmed {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: #000;
-  }
 
   button {
     width: 100%;

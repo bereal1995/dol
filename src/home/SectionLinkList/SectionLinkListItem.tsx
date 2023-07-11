@@ -39,7 +39,9 @@ export default function SectionLinkListItem({
         </div>
         <TextContainer>
           <TextContent>
-            <TextItem>{text}</TextItem>
+            <TextItem className="hover:font-diphylleia hover-text-shadow">
+              {text}
+            </TextItem>
             <div>
               <BsArrowRight />
             </div>
@@ -60,7 +62,7 @@ const MotionLine = styled(motion.div)`
 const Container = styled.a`
   display: flex;
   gap: 15px;
-  padding-top: 10px;
+  padding: 25px 0;
   margin-bottom: 40px;
 `
 const TextContainer = styled.div`
@@ -81,8 +83,9 @@ const TextContent = styled.div`
 `
 
 const TextItem = styled.div`
-  max-width: 310px;
+  font-size: 30px;
+  max-width: 80%;
 `
 const TextDate = styled.div`
-  font-size: 12px;
+  font-size: 15px;
 `

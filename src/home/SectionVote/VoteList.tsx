@@ -115,7 +115,7 @@ export default function VoteList({
       >
         <span className="cursorText">{cursorText}</span>
       </motion.div>
-      <div className="flex justify-around">
+      <div className="flex justify-around gap-[60px]">
         {voteOptions?.map((voteOption) => {
           const isVoted = votedData?.id === voteOption.id
           const hasVoted = votedData?.hasVoted

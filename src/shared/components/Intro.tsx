@@ -74,7 +74,7 @@ export default function Intro({ id }: Props) {
             <span>{subTitle}</span>
             <a
               href={`#${targetId}`}
-              className="flex w-full border-t-[2px] text-[100px] hover:font-diphylleia hover-text-shadow hover:text-white"
+              className="flex w-full border-t-[1px] border-black text-[100px] hover:font-diphylleia hover-text-shadow hover:text-white"
               onMouseEnter={() =>
                 handleItemEnter(
                   <img className="w-full" src="/sample.png" alt="" />,
