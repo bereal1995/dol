@@ -16,12 +16,14 @@ export default function Intro({ id }: Props) {
   const { ref, cursorVariant, mousePosition, setCursorVariant } =
     useCursorItem()
   const [hoverItem, setHoverItem] = useState<React.ReactNode>()
+  const [isMoving, setIsMoving] = useState(false)
 
   const variants = {
     default: {
       opacity: 0,
       width: 300,
       height: 400,
+      maxWidth: 300,
       backgroundColor: 'transparent',
       x: mousePosition.x,
       y: mousePosition.y,
@@ -50,6 +52,15 @@ export default function Intro({ id }: Props) {
     setHoverItem('')
   }
 
+  function handleClickButton(targetId: string) {
+    setIsMoving(true)
+    handleItemLeave()
+    window.location.href = `#${targetId}`
+    setTimeout(() => {
+      setIsMoving(false)
+    }, 1000)
+  }
+
   return (
     <Container
       ref={ref}
@@ -75,12 +86,14 @@ export default function Intro({ id }: Props) {
             <a
               href={`#${targetId}`}
               className="flex w-full border-t-[1px] border-black text-[100px] hover:font-diphylleia hover-text-shadow hover:text-white"
-              onMouseEnter={() =>
+              onMouseEnter={() => {
+                if (isMoving) return
                 handleItemEnter(
                   <img className="w-full" src="/sample.png" alt="" />,
                 )
-              }
+              }}
               onMouseLeave={handleItemLeave}
+              onClick={() => handleClickButton(targetId)}
             >
               {title}
             </a>

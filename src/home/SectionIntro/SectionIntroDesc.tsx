@@ -17,7 +17,7 @@ export default function SectionIntroDesc({
       opacity: 1,
       transition: {
         delay: 0.2,
-        staggerChildren: 0.08,
+        staggerChildren: 0.01,
       },
     },
   }
@@ -30,6 +30,9 @@ export default function SectionIntroDesc({
     visible: {
       opacity: 1,
       y: 0,
+      transition: {
+        ease: 'linear',
+      },
     },
   }
 
