@@ -47,6 +47,10 @@ const navList = [
     text: 'steadio\nintroduction',
   },
   {
+    targetId: 'dol-info',
+    text: 'steadio\ninformation',
+  },
+  {
     targetId: 'dol-vote',
     text: 'vote\nthe future of steadio',
   },

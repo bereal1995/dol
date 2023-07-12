@@ -119,14 +119,14 @@ const Container = styled.div`
 
 const navList = [
   {
-    subTitle: 'intro',
+    subTitle: 'information',
     title: 'first anniversary',
-    targetId: 'dol-intro',
+    targetId: 'dol-introduction',
   },
   {
     subTitle: 'introduction',
     title: 'steadio!',
-    targetId: 'dol-introduction',
+    targetId: 'dol-info',
   },
   {
     subTitle: 'vote',

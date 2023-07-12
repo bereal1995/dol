@@ -16,9 +16,9 @@ export default function Home() {
       <div>
         <FixedMenu />
         <Intro id="dol-intro" />
-        <div id="dol-introduction">
-          <Introduction />
-          <Spacing size={300} />
+        <Introduction id="dol-introduction" />
+        <Spacing size={300} />
+        <div id="dol-info">
           <SectionIntro content={SECTION_WHY_STEADIO} />
           <Spacing size={300} />
           <SectionIntro content={SECTION_STEADIO_LAUNCH} />

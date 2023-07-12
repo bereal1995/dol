@@ -9,7 +9,7 @@ import TextMask from '@/shared/components/TextMask'
 
 gsap.registerPlugin(ScrollTrigger)
 
-export default function Introduction() {
+export default function Introduction({ id }: { id: string }) {
   const triggerRef = useRef<HTMLDivElement | null>(null)
 
   useLayoutEffect(() => {
@@ -54,7 +54,7 @@ export default function Introduction() {
   }, [])
 
   return (
-    <div className="relative overflow-hidden bg-[#181818]">
+    <div className="relative overflow-hidden bg-[#181818]" id={id}>
       <div className="absolute top-[10%] w-full h-[100vh] z-[10] flex justify-center">
         <div className="max-w-[500px] flex flex-col text-center text-[#ffffff] leading-8 text-shiny">
           <h3>steadio logo</h3>

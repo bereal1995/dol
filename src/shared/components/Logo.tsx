@@ -15,7 +15,7 @@ const icon = {
 }
 export default function Logo() {
   return (
-    <Container>
+    <Container href="#dol-intro">
       <motion.svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 32 16"
@@ -36,7 +36,7 @@ export default function Logo() {
   )
 }
 
-const Container = styled.div`
+const Container = styled.a`
   width: 60px;
   height: 60px;
   display: flex;
