@@ -2,8 +2,9 @@ import { useLayoutEffect, useRef } from 'react'
 
 import { gsap, ScrollTrigger } from 'gsap/all'
 
-import TextMask from '@/shared/components/TextMask'
 import Spacing from './Spacing'
+
+import TextMask from '@/shared/components/TextMask'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -74,8 +75,11 @@ export default function Introduction() {
         </div>
       </div>
       <div ref={triggerRef} className="grid grid-cols-3 gap-[10px]">
-        {Array.from({ length: 25 }, () => (
-          <div className="card overflow-hidden w-[300px] h-[300px] bg-white">
+        {Array.from({ length: 25 }, (_, index) => (
+          <div
+            key={index}
+            className="card overflow-hidden w-[300px] h-[300px] bg-white"
+          >
             <a href="#self">
               <img className="w-full" src="/sample.png" alt="" />
             </a>
