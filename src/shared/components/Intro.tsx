@@ -23,17 +23,13 @@ export default function Intro({ id }: Props) {
       opacity: 0,
       width: 300,
       height: 400,
-      maxWidth: 300,
-      backgroundColor: 'transparent',
       x: mousePosition.x,
       y: mousePosition.y,
     },
     linkItem: {
       opacity: 1,
-      backgroundColor: 'transparent',
       width: 'auto',
       height: 'auto',
-      maxWidth: 300,
       fontSize: '18px',
       x: mousePosition.x - 32,
       y: mousePosition.y - 32,
@@ -69,7 +65,7 @@ export default function Intro({ id }: Props) {
     >
       <motion.div
         variants={variants}
-        className="dol-cursor"
+        className="dol-cursor max-w-[300px]"
         animate={cursorVariant}
         transition={{
           type: 'spring',
