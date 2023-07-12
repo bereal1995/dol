@@ -1,4 +1,5 @@
 import { SECTION_STEADIO_LAUNCH, SECTION_WHY_STEADIO } from '@/home/constants'
+import { CursorProvider } from '@/home/provider/CursorProvider'
 import SectionIntro from '@/home/SectionIntro'
 import SectionLinkList from '@/home/SectionLinkList'
 import SectionPadlet from '@/home/SectionPadlet'
@@ -11,27 +12,29 @@ import Spacing from '@/shared/components/Spacing'
 
 export default function Home() {
   return (
-    <div>
-      <FixedMenu />
-      <Intro id="dol-intro" />
-      <div id="dol-introduction">
-        <Introduction />
-        <Spacing size={300} />
-        <SectionIntro content={SECTION_WHY_STEADIO} />
-        <Spacing size={300} />
-        <SectionIntro content={SECTION_STEADIO_LAUNCH} />
-        <Spacing size={300} />
-        <SectionLinkList />
+    <CursorProvider>
+      <div>
+        <FixedMenu />
+        <Intro id="dol-intro" />
+        <div id="dol-introduction">
+          <Introduction />
+          <Spacing size={300} />
+          <SectionIntro content={SECTION_WHY_STEADIO} />
+          <Spacing size={300} />
+          <SectionIntro content={SECTION_STEADIO_LAUNCH} />
+          <Spacing size={300} />
+          <SectionLinkList />
+        </div>
+        <Spacing size={200} />
+        <SectionVote id="dol-vote" />
+        <Spacing size={0} />
+        <SectionPadlet id="dol-comment" />
+        <Spacing size={50} />
+        <Cursor />
+        <footer className="flex h-[100px] bg-[#181818] items-center justify-center">
+          <p className="text-[#666666]">© 2023 Backpackr All right reserved.</p>
+        </footer>
       </div>
-      <Spacing size={200} />
-      <SectionVote id="dol-vote" />
-      <Spacing size={0} />
-      <SectionPadlet id="dol-comment" />
-      <Spacing size={50} />
-      <Cursor />
-      <footer className="flex h-[100px] bg-[#181818] items-center justify-center">
-        <p className="text-[#666666]">© 2023 Backpackr All right reserved.</p>
-      </footer>
-    </div>
+    </CursorProvider>
   )
 }

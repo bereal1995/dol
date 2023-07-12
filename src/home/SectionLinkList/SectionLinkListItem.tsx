@@ -4,7 +4,9 @@ import { BsArrowRight } from 'react-icons/bs'
 import styled from '@emotion/styled'
 import { motion, useInView } from 'framer-motion'
 
+import { useCursor } from '@/home/provider/CursorProvider'
 import CurtainMotionImage from '@/shared/components/CurtainMotionImage'
+import { Colors } from '@/shared/theme/colors'
 interface Props {
   text: string
   imgSrc: string
@@ -20,6 +22,18 @@ export default function SectionLinkListItem({
 }: Props) {
   const ref = useRef<HTMLAnchorElement>(null)
   const isInView = useInView(ref, { once: true })
+  const { setCursorItem, resetCursor } = useCursor()
+
+  const handleMouseEnter = (text: string) => {
+    setCursorItem({
+      name: 'sectionLinkListItem',
+      value: <HoverCursorItem text={text} />,
+    })
+  }
+
+  const handleMouseLeave = () => {
+    resetCursor()
+  }
 
   return (
     <>
@@ -35,6 +49,8 @@ export default function SectionLinkListItem({
         href={link}
         target="_blank"
         rel="noopener noreferrer"
+        onMouseEnter={() => handleMouseEnter('스테디오오오로롤로')}
+        onMouseLeave={handleMouseLeave}
       >
         <div className="relative overflow-hidden">
           <CurtainMotionImage imgSrc={imgSrc} margin="-130px" />
@@ -91,3 +107,21 @@ const TextItem = styled.div`
 const TextDate = styled.div`
   font-size: 15px;
 `
+
+const CursorItemContainer = styled.div`
+  position: relative;
+  top: 10px;
+  left: 45px;
+  border: 1px solid #000;
+  border-radius: 10px;
+  background-color: ${Colors.primary};
+  font-size: 10px;
+`
+
+function HoverCursorItem({ text }: { text: string }) {
+  return (
+    <CursorItemContainer>
+      <span>{text}</span>
+    </CursorItemContainer>
+  )
+}

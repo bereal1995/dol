@@ -38,11 +38,9 @@ body {
 /* cursor custom */
 .cursor {
   pointer-events: none;
-  width: 56px;
   border-radius: 0;
   aspect-ratio: 1;
   position: fixed;
-  background: #7e69fe;
   display: grid;
   place-items: center;
   color: hsl(0 0% 100%);
@@ -53,6 +51,11 @@ body {
   scale: var(--active, 0);
   border-radius: 50%;
   transition: scale 0.2s;
+}
+
+.cursor.default {
+  width: 56px;
+  background: #7e69fe;
 }
 
 :root {
