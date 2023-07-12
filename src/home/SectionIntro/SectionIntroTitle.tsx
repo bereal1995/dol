@@ -7,11 +7,17 @@ export default function SectionIntroTitle({
 }) {
   return (
     <h2 className="relative font-bold text-[40px]">
-      <span>
-        <span className="font-diphylleia">{title.left}</span>
-        <span className="font-sans">{title.right}</span>
-      </span>
-      <span className="absolute left-0 bottom-[-14px] text-[10px] font-black">
+      <div className="flex">
+        <span>
+          <span className="text-[70px] leading-none font-diphylleia text-shadow">
+            {title.left}
+          </span>
+          <span className="text-[70px] leading-none font-sans">
+            {title.right}
+          </span>
+        </span>
+      </div>
+      <span className="block text-[15px] leading-none font-sans">
         {title.sub}
       </span>
     </h2>

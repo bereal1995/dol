@@ -11,7 +11,7 @@ export default function SectionIntro({ content }: Props) {
   const { title, description } = content
 
   return (
-    <div className="pl-[60px] pr-[100px]">
+    <div className="pl-[60px] pr-[240px]">
       <CurtainMotionImage
         className="relative overflow-hidden mb-[60px]"
         margin="-200px"

@@ -34,7 +34,7 @@ export default function SectionIntroDesc({
   }
 
   return (
-    <div className="flex flex-col gap-[20px]" ref={ref}>
+    <div className="max-w-[500px] flex flex-col gap-[20px]" ref={ref}>
       <motion.p
         variants={sentence}
         initial="hidden"

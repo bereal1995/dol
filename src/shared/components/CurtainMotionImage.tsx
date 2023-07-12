@@ -36,7 +36,12 @@ export default function CurtainMotionImage({
           delay: 0.4,
         }}
       />
-      <img ref={ref} src={imgSrc} alt="" className="block w-full" />
+      <img
+        ref={ref}
+        src={imgSrc}
+        alt="스테디오 이미지"
+        className="block w-full"
+      />
     </motion.div>
   )
 }
