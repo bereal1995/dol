@@ -150,13 +150,16 @@ function ThreeBG() {
     0.1,
     1000,
   )
-  camera.position.z = 1
-  camera.position.y = 0.5
+  camera.position.z = 20
+  camera.position.y = 5
 
   //===================================================== lights
-  const light = new THREE.DirectionalLight(0xefefff, 3)
+  const light = new THREE.DirectionalLight(0xefefff, 1)
+  const light2 = new THREE.DirectionalLight(0xefefff, 1)
+  light.position.set(1, 1, 1).normalize()
   light.position.set(1, 1, 1).normalize()
   scene.add(light)
+  scene.add(light2)
 
   //===================================================== resize
   window.addEventListener('resize', function () {
@@ -174,7 +177,7 @@ function ThreeBG() {
   let mixer: any
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let model: any
-  loader.load('/candy.glb', function (gltf) {
+  loader.load('/cake.glb', function (gltf) {
     // gltf.scene.traverse( function( node ) {
     //    if ( node instanceof THREE.Mesh ) {
     //      node.castShadow = true;
@@ -183,6 +186,7 @@ function ThreeBG() {
     //  });
 
     model = gltf.scene
+    model.rotation.x = 0.3
 
     scene.add(model)
 
