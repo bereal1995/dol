@@ -4,6 +4,7 @@ import { gsap, ScrollTrigger } from 'gsap/all'
 
 import Spacing from './Spacing'
 
+import { SECTION_CREATOR_LIST_CONTENT } from '@/home/constants'
 import TextMask from '@/shared/components/TextMask'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -75,14 +76,19 @@ export default function Introduction() {
         </div>
       </div>
       <div ref={triggerRef} className="grid grid-cols-3 gap-[10px]">
-        {Array.from({ length: 25 }, (_, index) => (
+        {SECTION_CREATOR_LIST_CONTENT.map((creator, index) => (
           <div
             key={index}
             className="card overflow-hidden w-[300px] h-[300px] bg-white"
           >
-            <a href="#self">
-              <img className="w-full" src="/sample.png" alt="" />
-            </a>
+            <a
+              href={`https://www.steadio.co/creator/${creator}`}
+              target="_blank"
+              className="flex w-full h-full"
+              style={{
+                background: `url(/src/assets/images/${creator}.png) center / cover no-repeat`,
+              }}
+            ></a>
           </div>
         ))}
       </div>

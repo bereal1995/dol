@@ -44,3 +44,22 @@ export const SECTION_PADLET_CONTENT: ISectionPadletContent = {
     '지금까지 첫 돌을 맞이하는 스테디오에 큰 관심을 가져주셔서 감사해요. 혹시 스테디오에게 전하고 싶은 메시지나, 스테디오에게 꼭 추천하고 싶은 크리에이터가 있나요? 아래 방명록을 통해 여러분의 이야기를 남겨주세요.',
   ],
 }
+
+export const SECTION_CREATOR_LIST_CONTENT: string[] = [
+  'bakchamsae',
+  'budung',
+  'yunsaemusic',
+  'chommang',
+  'daram',
+  'dingding',
+  'foldableideas',
+  'free',
+  'keumdoesstuff',
+  'kokojournal',
+  'manmong',
+  'mysmallcreta',
+  'shimwanseon',
+  'uyeonstudio',
+  'yirangkim',
+  'uupress',
+]
