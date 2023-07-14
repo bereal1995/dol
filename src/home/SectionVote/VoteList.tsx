@@ -8,6 +8,10 @@ import { VOTED_LOCAL_DATA_KEY } from '@/home/constants'
 import VoteListItem from '@/home/SectionVote/VoteListItem'
 import { getLocalData, setLocalData } from '@/utils'
 
+interface VoteImages {
+  [id: number]: string
+}
+
 interface Props {
   mousePosition: {
     x: number
@@ -101,6 +105,12 @@ export default function VoteList({
     initFetch()
   }, [])
 
+  const voteImages: VoteImages = {
+    1: '/src/assets/images/money.png',
+    2: '/src/assets/images/speed.png',
+    3: '/src/assets/images/community.png',
+  }
+
   return (
     <Container>
       <motion.div
@@ -119,6 +129,8 @@ export default function VoteList({
         {voteOptions?.map((voteOption) => {
           const isVoted = votedData?.id === voteOption.id
           const hasVoted = votedData?.hasVoted
+          const imageUrl = voteImages[voteOption.id]
+
           return (
             <VoteListItem
               key={voteOption.id}
@@ -128,6 +140,7 @@ export default function VoteList({
               voteItemEnter={voteItemEnter}
               voteItemLeave={voteItemLeave}
               voteOption={voteOption}
+              imageUrl={imageUrl}
             />
           )
         })}

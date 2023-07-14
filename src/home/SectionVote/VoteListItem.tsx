@@ -5,6 +5,7 @@ import { motion, Variants } from 'framer-motion'
 
 import { TVoteOption } from '@/api/vote'
 import VoteHoverItem from '@/home/SectionVote/VoteHoverItem'
+import Spacing from '@/shared/components/Spacing'
 
 const buttonVariants: Variants = {
   hover: {
@@ -35,6 +36,7 @@ interface Props extends React.HTMLAttributes<HTMLButtonElement> {
   onClickButton(): void
   voteItemEnter(cursorText: React.ReactNode): void
   voteItemLeave(): void
+  imageUrl: string
 }
 
 export default function VoteListItem({
@@ -44,6 +46,7 @@ export default function VoteListItem({
   onClickButton,
   voteItemEnter,
   voteItemLeave,
+  imageUrl,
   ...rest
 }: Props) {
   const [isHover, setIsHover] = useState(false)
@@ -83,7 +86,11 @@ export default function VoteListItem({
         />
       )}
       <button disabled={isVoted} {...rest}>
-        <img src="https://picsum.photos/300/300" alt="" />
+        <img src={imageUrl} alt="" />
+        <Spacing size={20} />
+        <span className="bg-[rgba(0,0,0,0.5)] text-white py-[5px] px-[10px] rounded-full">
+          {voteOption.title}
+        </span>
       </button>
     </Container>
   )
