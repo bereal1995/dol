@@ -15,8 +15,8 @@ const buttonVariants: Variants = {
     scale: 1,
   },
   isNotVoted: {
-    opacity: 0,
-    translateY: -200,
+    opacity: 0.6,
+    scale: 0.9,
   },
 }
 
@@ -88,7 +88,7 @@ export default function VoteListItem({
       <button disabled={isVoted} {...rest}>
         <img src={imageUrl} alt="" />
         <Spacing size={20} />
-        <span className="bg-[rgba(0,0,0,0.5)] text-white py-[5px] px-[10px] rounded-full">
+        <span className="bg-[rgba(0,0,0,0.5)] text-[14px] text-white py-[5px] px-[10px] rounded-full">
           {voteOption.title}
         </span>
       </button>

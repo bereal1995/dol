@@ -69,7 +69,7 @@ export default function Intro({ id }: Props) {
         <span className="cursorText">{hoverItem}</span>
       </motion.div>
       <ul className="flex flex-col gap-[10px] w-[90%]">
-        {navList.map(({ subTitle, title, targetId }) => (
+        {navList.map(({ subTitle, title, targetId, imgSrc }) => (
           <li key={title} className="flex flex-col gap-[10px]">
             <span>{subTitle}</span>
             <a
@@ -77,7 +77,9 @@ export default function Intro({ id }: Props) {
               className="flex w-full border-t-[1px] border-black text-[100px] hover:font-diphylleia hover-text-shadow hover:text-white"
               onMouseEnter={() =>
                 handleItemEnter(
-                  <img className="w-full" src="/sample.png" alt="" />,
+                  <div className="shadow-2xl">
+                    <img className="w-full" src={imgSrc} alt="" />
+                  </div>,
                 )
               }
               onMouseLeave={handleItemLeave}
@@ -110,24 +112,28 @@ const Container = styled.div`
 
 const navList = [
   {
-    subTitle: 'intro',
-    title: 'first anniversary',
+    subTitle: 'welcome!',
+    title: 'Steadio 1st Birthday',
     targetId: 'dol-intro',
+    imgSrc: '/src/assets/images/intro.png',
   },
   {
-    subTitle: 'introduction',
-    title: 'steadio!',
+    subTitle: 'throwback!',
+    title: 'Throughout the Year',
     targetId: 'dol-introduction',
+    imgSrc: '/src/assets/images/welcome.png',
   },
   {
-    subTitle: 'vote',
-    title: 'the future of steadio',
+    subTitle: 'upcoming',
+    title: 'Future of Creation',
     targetId: 'dol-vote',
+    imgSrc: '/src/assets/images/vote.png',
   },
   {
-    subTitle: 'guest\nbook',
-    title: 'congratulate me.',
+    subTitle: 'celebrate together',
+    title: 'Guest Book',
     targetId: 'dol-comment',
+    imgSrc: '/src/assets/images/guest-book.png',
   },
 ] as const
 

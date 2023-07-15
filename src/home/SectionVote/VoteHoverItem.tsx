@@ -1,18 +1,11 @@
-import styled from '@emotion/styled'
-
 import { TVoteOption } from '@/api/vote'
 
 type Props = TVoteOption
 
-export default function VoteHoverItem({ title, description }: Props) {
+export default function VoteHoverItem({ description }: Props) {
   return (
-    <Container>
-      <div className="mb-[10px] text-[18px] whitespace-nowrap">{title}</div>
-      <div>{description}</div>
-    </Container>
+    <div className="p-[20px] min-w-[260px] border-[3px] border-white text-left text-[14px] bg-[#181818]">
+      {description}
+    </div>
   )
 }
-
-const Container = styled.div`
-  font-size: 14px;
-`

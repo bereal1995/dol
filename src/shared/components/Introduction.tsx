@@ -5,6 +5,7 @@ import { gsap, ScrollTrigger } from 'gsap/all'
 import Spacing from './Spacing'
 
 import { SECTION_CREATOR_LIST_CONTENT } from '@/home/constants'
+import { Icons } from '@/shared/components/Icons'
 import TextMask from '@/shared/components/TextMask'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -57,7 +58,9 @@ export default function Introduction() {
     <div className="relative overflow-hidden bg-[#181818]">
       <div className="absolute top-[10%] w-full h-[100vh] z-[10] flex justify-center">
         <div className="max-w-[500px] flex flex-col text-center text-[#ffffff] leading-8 text-shiny">
-          <h3>steadio logo</h3>
+          <h3 className="flex justify-center">
+            <Icons.Logo className="w-[200px] fill-white" />
+          </h3>
           <Spacing size={50} />
           <div className="font-bold">JUL 2022</div>
           <Spacing size={50} />

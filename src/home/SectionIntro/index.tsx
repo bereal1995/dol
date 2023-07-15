@@ -8,12 +8,13 @@ interface Props {
 }
 
 export default function SectionIntro({ content }: Props) {
-  const { title, description } = content
+  const { title, description, imgSrc } = content
 
   return (
     <div className="pl-[60px] pr-[240px]">
       <CurtainMotionImage
-        className="relative overflow-hidden mb-[60px]"
+        imgSrc={imgSrc}
+        className="relative overflow-hidden w-full max-h-[500px] mb-[60px]"
         margin="-200px"
       />
       <div className="flex justify-between items-end gap-[20%]">
