@@ -1,13 +1,13 @@
 import { ISectionIntroContent } from '@/home/constants'
-import SectionIntroDesc from '@/home/SectionIntro/SectionIntroDesc'
-import SectionIntroTitle from '@/home/SectionIntro/SectionIntroTitle'
+import SectionIntroDesc from '@/home/SectionInfo/SectionInfoIntro/SectionIntroDesc'
+import SectionIntroTitle from '@/home/SectionInfo/SectionInfoIntro/SectionIntroTitle'
 import CurtainMotionImage from '@/shared/components/CurtainMotionImage'
 
 interface Props {
   content: ISectionIntroContent
 }
 
-export default function SectionIntro({ content }: Props) {
+export default function SectionInfoIntro({ content }: Props) {
   const { title, description } = content
 
   return (

@@ -2,9 +2,8 @@ import { useLayoutEffect, useRef } from 'react'
 
 import { gsap, ScrollTrigger } from 'gsap/all'
 
-import Spacing from './Spacing'
-
 import { SECTION_CREATOR_LIST_CONTENT } from '@/home/constants'
+import Spacing from '@/shared/components/Spacing'
 import TextMask from '@/shared/components/TextMask'
 
 gsap.registerPlugin(ScrollTrigger)

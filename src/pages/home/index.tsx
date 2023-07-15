@@ -1,13 +1,13 @@
 import { SECTION_STEADIO_LAUNCH, SECTION_WHY_STEADIO } from '@/home/constants'
 import { CursorProvider } from '@/home/provider/CursorProvider'
-import SectionIntro from '@/home/SectionIntro'
-import SectionLinkList from '@/home/SectionLinkList'
+import SectionInfoIntro from '@/home/SectionInfo/SectionInfoIntro'
+import SectionInfoLinkList from '@/home/SectionInfo/SectionInfoLinkList'
 import SectionPadlet from '@/home/SectionPadlet'
 import SectionVote from '@/home/SectionVote'
+import SectionWelcome from '@/home/SectionWelcome'
 import Cursor from '@/shared/components/Cursor'
 import FixedMenu from '@/shared/components/FixedMenu'
 import Intro from '@/shared/components/Intro'
-import Introduction from '@/shared/components/Introduction'
 import Spacing from '@/shared/components/Spacing'
 
 export default function Home() {
@@ -16,14 +16,14 @@ export default function Home() {
       <div>
         <FixedMenu />
         <Intro id="dol-intro" />
-        <Introduction id="dol-introduction" />
+        <SectionWelcome id="dol-welcome" />
         <Spacing size={300} />
         <div id="dol-info">
-          <SectionIntro content={SECTION_WHY_STEADIO} />
+          <SectionInfoIntro content={SECTION_WHY_STEADIO} />
           <Spacing size={300} />
-          <SectionIntro content={SECTION_STEADIO_LAUNCH} />
+          <SectionInfoIntro content={SECTION_STEADIO_LAUNCH} />
           <Spacing size={300} />
-          <SectionLinkList />
+          <SectionInfoLinkList />
         </div>
         <Spacing size={200} />
         <SectionVote id="dol-vote" />

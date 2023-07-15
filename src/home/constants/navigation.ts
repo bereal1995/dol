@@ -2,7 +2,7 @@ export const NAVIGATION_LIST = [
   {
     subTitle: 'welcome!',
     title: 'Steadio 1st Birthday',
-    targetId: 'dol-introduction',
+    targetId: 'dol-welcome',
   },
   {
     subTitle: 'throwback!',

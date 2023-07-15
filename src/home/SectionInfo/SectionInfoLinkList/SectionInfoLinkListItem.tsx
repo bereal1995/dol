@@ -14,7 +14,7 @@ interface Props {
   link: string
 }
 
-export default function SectionLinkListItem({
+export default function SectionInfoLinkListItem({
   text,
   imgSrc,
   date,
