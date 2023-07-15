@@ -7,14 +7,15 @@ import SectionVote from '@/home/SectionVote'
 import SectionWelcome from '@/home/SectionWelcome'
 import Cursor from '@/shared/components/Cursor'
 import FixedMenu from '@/shared/components/FixedMenu'
+import Footer from '@/shared/components/Footer'
 import Intro from '@/shared/components/Intro'
 import Spacing from '@/shared/components/Spacing'
 
 export default function Home() {
   return (
     <CursorProvider>
+      <FixedMenu />
       <div>
-        <FixedMenu />
         <Intro id="dol-intro" />
         <SectionWelcome id="dol-welcome" />
         <Spacing size={300} />
@@ -30,11 +31,9 @@ export default function Home() {
         <Spacing size={0} />
         <SectionPadlet id="dol-comment" />
         <Spacing size={50} />
-        <Cursor />
-        <footer className="flex h-[100px] bg-[#181818] items-center justify-center">
-          <p className="text-[#666666]">© 2023 Backpackr All right reserved.</p>
-        </footer>
       </div>
+      <Footer />
+      <Cursor />
     </CursorProvider>
   )
 }
