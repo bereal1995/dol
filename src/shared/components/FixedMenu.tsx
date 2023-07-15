@@ -1,4 +1,14 @@
 import Logo from '@/shared/components/Logo'
+import { NAVIGATION_LIST } from '@/shared/contants/navigation'
+
+const SIDE_NAVIGATION_LIST = [
+  {
+    targetId: 'dol-intro',
+    title: 'intro',
+    subTitle: '',
+  },
+  ...NAVIGATION_LIST,
+]
 
 export default function FixedMenu() {
   return (
@@ -14,15 +24,13 @@ export default function FixedMenu() {
 
       <nav className="fixed top-0 right-0 z-[100] flex flex-col justify-between h-[100vh] border-l-[1px] bg-[#fff]">
         <ul className="flex-col gap-[100px] px-[10px] py-[20px]">
-          {navList.map(({ text, targetId }) => {
+          {SIDE_NAVIGATION_LIST.map(({ targetId, title, subTitle }) => {
             return (
               <li key={targetId} className="writing-vertical-r mb-[50px]">
                 <a href={`#${targetId}`}>
-                  {text.split('\n').map((word) => (
-                    <span key={word} className="flex">
-                      {word}
-                    </span>
-                  ))}
+                  <span className="text-[10px]">{subTitle}</span>
+                  <br />
+                  <span className="text-[14px]">{title}</span>
                 </a>
               </li>
             )
@@ -36,26 +44,3 @@ export default function FixedMenu() {
     </header>
   )
 }
-
-const navList = [
-  {
-    targetId: 'dol-intro',
-    text: 'intro',
-  },
-  {
-    targetId: 'dol-introduction',
-    text: 'steadio\nintroduction',
-  },
-  {
-    targetId: 'dol-info',
-    text: 'steadio\ninformation',
-  },
-  {
-    targetId: 'dol-vote',
-    text: 'vote\nthe future of steadio',
-  },
-  {
-    targetId: 'dol-comment',
-    text: 'guest\nbook',
-  },
-] as const

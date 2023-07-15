@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
 
+import { NAVIGATION_LIST } from '@/shared/contants/navigation'
 import { useCursorItem } from '@/shared/hooks/useCursorItem'
 
 interface Props {
@@ -76,7 +77,7 @@ export default function Intro({ id }: Props) {
         <span className="cursorText">{hoverItem}</span>
       </motion.div>
       <ul className="flex flex-col gap-[10px] w-[90%]">
-        {navList.map(({ subTitle, title, targetId }) => (
+        {NAVIGATION_LIST.map(({ subTitle, title, targetId }) => (
           <li key={title} className="flex flex-col gap-[10px]">
             <span>{subTitle}</span>
             <a
@@ -116,29 +117,6 @@ const Container = styled.div`
     pointer-events: none;
   }
 `
-
-const navList = [
-  {
-    subTitle: 'information',
-    title: 'first anniversary',
-    targetId: 'dol-introduction',
-  },
-  {
-    subTitle: 'introduction',
-    title: 'steadio!',
-    targetId: 'dol-info',
-  },
-  {
-    subTitle: 'vote',
-    title: 'the future of steadio',
-    targetId: 'dol-vote',
-  },
-  {
-    subTitle: 'guest\nbook',
-    title: 'congratulate me.',
-    targetId: 'dol-comment',
-  },
-] as const
 
 function ThreeBG() {
   //===================================================== canvas
