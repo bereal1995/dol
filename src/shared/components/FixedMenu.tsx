@@ -5,7 +5,7 @@ export default function FixedMenu() {
     <header>
       <h1 className="fixed top-0 left-0 z-[100]">
         <a
-          href="#self"
+          href="#dol-intro"
           className="flex items-center justify-center w-[60px] h-[60px]"
         >
           <Logo />

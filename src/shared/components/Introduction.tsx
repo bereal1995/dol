@@ -55,7 +55,7 @@ export default function Introduction({ id }: { id: string }) {
 
   return (
     <div className="relative overflow-hidden bg-[#181818]" id={id}>
-      <div className="absolute top-[10%] w-full h-[100vh] z-[10] flex justify-center">
+      <div className="absolute top-[10%] left-[50%] z-[10] flex justify-center translate-x-[-50%]">
         <div className="max-w-[500px] flex flex-col text-center text-[#ffffff] leading-8 text-shiny">
           <h3>steadio logo</h3>
           <Spacing size={50} />
