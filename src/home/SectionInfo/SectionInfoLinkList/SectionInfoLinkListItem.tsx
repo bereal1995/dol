@@ -4,22 +4,18 @@ import { BsArrowRight } from 'react-icons/bs'
 import styled from '@emotion/styled'
 import { motion, useInView } from 'framer-motion'
 
+import { ISectionInfoLinkContent } from '@/home/constants'
 import { useCursor } from '@/home/provider/CursorProvider'
 import CurtainMotionImage from '@/shared/components/CurtainMotionImage'
 import { Colors } from '@/shared/theme/colors'
-interface Props {
-  text: string
-  imgSrc: string
-  date: string
-  link: string
-}
 
 export default function SectionInfoLinkListItem({
   text,
   imgSrc,
   date,
   link,
-}: Props) {
+  creatorName,
+}: ISectionInfoLinkContent) {
   const ref = useRef<HTMLAnchorElement>(null)
   const isInView = useInView(ref, { once: true })
   const { setCursorItem, resetCursor } = useCursor()
@@ -49,7 +45,7 @@ export default function SectionInfoLinkListItem({
         href={link}
         target="_blank"
         rel="noopener noreferrer"
-        onMouseEnter={() => handleMouseEnter('스테디오오오로롤로')}
+        onMouseEnter={() => handleMouseEnter(creatorName)}
         onMouseLeave={handleMouseLeave}
       >
         <div className="relative overflow-hidden">
@@ -109,19 +105,24 @@ const TextDate = styled.div`
 `
 
 const CursorItemContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   top: 10px;
   left: 45px;
+  padding: 3px 5px;
   border: 1px solid #000;
   border-radius: 10px;
   background-color: ${Colors.primary};
   font-size: 10px;
+  line-height: 1;
 `
 
 function HoverCursorItem({ text }: { text: string }) {
   return (
     <CursorItemContainer>
-      <span>{text}</span>
+      <span>{text} 보러가기</span>
     </CursorItemContainer>
   )
 }
