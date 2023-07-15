@@ -2,12 +2,12 @@ import { useRef } from 'react'
 
 import { motion, useInView, Variants } from 'framer-motion'
 
-import { ISectionIntroContent } from '@/home/constants'
+import { ISectionInfoIntroContent } from '@/home/constants'
 
 export default function SectionIntroTitle({
   title,
 }: {
-  title: ISectionIntroContent['title']
+  title: ISectionInfoIntroContent['title']
 }) {
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true })

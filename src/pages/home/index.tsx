@@ -1,6 +1,6 @@
-import { SECTION_STEADIO_LAUNCH, SECTION_WHY_STEADIO } from '@/home/constants'
+import { SECTION_INFO_CONTENT_LIST } from '@/home/constants'
 import { CursorProvider } from '@/home/provider/CursorProvider'
-import SectionInfoIntro from '@/home/SectionInfo/SectionInfoIntro'
+import SectionInfoIntroList from '@/home/SectionInfo/SectionInfoIntroList'
 import SectionInfoLinkList from '@/home/SectionInfo/SectionInfoLinkList'
 import SectionPadlet from '@/home/SectionPadlet'
 import SectionVote from '@/home/SectionVote'
@@ -20,10 +20,7 @@ export default function Home() {
         <SectionWelcome id="dol-welcome" />
         <Spacing size={300} />
         <div id="dol-info">
-          <SectionInfoIntro content={SECTION_WHY_STEADIO} />
-          <Spacing size={300} />
-          <SectionInfoIntro content={SECTION_STEADIO_LAUNCH} />
-          <Spacing size={300} />
+          <SectionInfoIntroList contents={SECTION_INFO_CONTENT_LIST} />
           <SectionInfoLinkList />
         </div>
         <Spacing size={200} />
