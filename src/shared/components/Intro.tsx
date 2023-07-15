@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
 
-import { NAVIGATION_LIST } from '@/shared/contants/navigation'
+import { NAVIGATION_LIST } from '@/home/constants/navigation'
 import { useCursorItem } from '@/shared/hooks/useCursorItem'
 
 interface Props {

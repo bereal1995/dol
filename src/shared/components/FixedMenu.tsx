@@ -1,5 +1,5 @@
 import Logo from '@/shared/components/Logo'
-import { NAVIGATION_LIST } from '@/shared/contants/navigation'
+import { NAVIGATION_LIST } from '@/home/constants/navigation'
 
 const SIDE_NAVIGATION_LIST = [
   {
