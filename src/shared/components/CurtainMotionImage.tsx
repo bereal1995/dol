@@ -5,11 +5,11 @@ import { motion, useInView, Variants } from 'framer-motion'
 
 export default function CurtainMotionImage({
   className,
-  imgSrc = '/src/assets/images/launch.png',
+  children,
   margin,
 }: {
-  imgSrc?: string
   className?: string
+  children: React.ReactNode
   margin?: string
 }) {
   const ref = useRef<HTMLImageElement>(null)
@@ -36,13 +36,7 @@ export default function CurtainMotionImage({
           delay: 0.4,
         }}
       />
-      <div
-        ref={ref}
-        className="w-[500px] h-[300px]"
-        style={{
-          background: `url(${imgSrc}) center center / cover no-repeat`,
-        }}
-      />
+      <div ref={ref}>{children}</div>
     </motion.div>
   )
 }

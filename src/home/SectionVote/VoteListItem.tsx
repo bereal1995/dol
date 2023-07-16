@@ -15,8 +15,8 @@ const buttonVariants: Variants = {
     scale: 1,
   },
   isNotVoted: {
-    opacity: 0.6,
-    scale: 0.9,
+    opacity: 0.3,
+    scale: 0.8,
   },
 }
 

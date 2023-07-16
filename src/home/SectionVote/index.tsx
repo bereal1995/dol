@@ -54,25 +54,8 @@ function BG() {
               values="0%;3%;0%"
               repeatCount="indefinite"
             ></animate>
-            <stop offset="0%" stopColor="rgba(255, 0, 255, 1)"></stop>
-            <stop offset="100%" stopColor="rgba(255, 0, 255, 0)"></stop>
-          </radialGradient>
-          <radialGradient
-            id="Gradient2"
-            cx="50%"
-            cy="50%"
-            fx="2.68147%"
-            fy="50%"
-            r=".5"
-          >
-            <animate
-              attributeName="fx"
-              dur="23.5s"
-              values="0%;3%;0%"
-              repeatCount="indefinite"
-            ></animate>
-            <stop offset="0%" stopColor="rgba(255, 255, 0, 1)"></stop>
-            <stop offset="100%" stopColor="rgba(255, 255, 0, 0)"></stop>
+            <stop offset="0%" stopColor="rgba(255, 202, 201, 1)"></stop>
+            <stop offset="100%" stopColor="rgba(255, 202, 201, 0)"></stop>
           </radialGradient>
           <radialGradient
             id="Gradient3"
@@ -88,59 +71,25 @@ function BG() {
               values="0%;3%;0%"
               repeatCount="indefinite"
             ></animate>
-            <stop offset="0%" stopColor="rgba(0, 255, 255, 1)"></stop>
-            <stop offset="100%" stopColor="rgba(0, 255, 255, 0)"></stop>
+            <stop offset="0%" stopColor="rgba(204, 153, 255, 1)"></stop>
+            <stop offset="100%" stopColor="rgba(204, 153, 255, 0)"></stop>
           </radialGradient>
           <radialGradient
-            id="Gradient4"
+            id="Gradient2"
             cx="50%"
             cy="50%"
-            fx="4.56417%"
+            fx="2.68147%"
             fy="50%"
             r=".5"
           >
             <animate
               attributeName="fx"
-              dur="23s"
-              values="0%;5%;0%"
+              dur="23.5s"
+              values="0%;3%;0%"
               repeatCount="indefinite"
             ></animate>
-            <stop offset="0%" stopColor="rgba(0, 255, 0, 1)"></stop>
-            <stop offset="100%" stopColor="rgba(0, 255, 0, 0)"></stop>
-          </radialGradient>
-          <radialGradient
-            id="Gradient5"
-            cx="50%"
-            cy="50%"
-            fx="2.65405%"
-            fy="50%"
-            r=".5"
-          >
-            <animate
-              attributeName="fx"
-              dur="24.5s"
-              values="0%;5%;0%"
-              repeatCount="indefinite"
-            ></animate>
-            <stop offset="0%" stopColor="rgba(0,0,255, 1)"></stop>
-            <stop offset="100%" stopColor="rgba(0,0,255, 0)"></stop>
-          </radialGradient>
-          <radialGradient
-            id="Gradient6"
-            cx="50%"
-            cy="50%"
-            fx="0.981338%"
-            fy="50%"
-            r=".5"
-          >
-            <animate
-              attributeName="fx"
-              dur="25.5s"
-              values="0%;5%;0%"
-              repeatCount="indefinite"
-            ></animate>
-            <stop offset="0%" stopColor="rgba(255,0,0, 1)"></stop>
-            <stop offset="100%" stopColor="rgba(255,0,0, 0)"></stop>
+            <stop offset="0%" stopColor="rgba(126, 105, 253, 1)"></stop>
+            <stop offset="100%" stopColor="rgba(126, 105, 253, 0)"></stop>
           </radialGradient>
         </defs>
         <rect

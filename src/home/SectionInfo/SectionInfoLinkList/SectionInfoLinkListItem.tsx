@@ -48,7 +48,14 @@ export default function SectionInfoLinkListItem({
         onMouseLeave={handleMouseLeave}
       >
         <div className="relative overflow-hidden shrink-0 grow-0">
-          <CurtainMotionImage imgSrc={imgSrc} margin="-130px" />
+          <CurtainMotionImage margin="-130px">
+            <div
+              className="w-[500px] h-[300px]"
+              style={{
+                background: `url(${imgSrc}) center center / cover no-repeat`,
+              }}
+            />
+          </CurtainMotionImage>
         </div>
         <TextContainer>
           <TextContent>
