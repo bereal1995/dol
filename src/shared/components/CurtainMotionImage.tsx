@@ -5,7 +5,7 @@ import { motion, useInView, Variants } from 'framer-motion'
 
 export default function CurtainMotionImage({
   className,
-  imgSrc = 'https://picsum.photos/920/360',
+  imgSrc = '/src/assets/images/launch.png',
   margin,
 }: {
   imgSrc?: string

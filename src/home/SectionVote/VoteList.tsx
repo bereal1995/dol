@@ -80,10 +80,9 @@ export default function VoteList({
       opacity: 1,
       height: 'auto',
       width: 'auto',
-      fontSize: '18px',
-      x: mousePosition.x - 32,
-      y: mousePosition.y - 32,
-      textShadow: '0 0 10px rgba(0, 0, 0, 0.5)',
+      maxWidth: '200px',
+      x: mousePosition.x + 32,
+      y: mousePosition.y + 32,
       color: '#fff',
     },
   }

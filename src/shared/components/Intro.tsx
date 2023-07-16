@@ -77,7 +77,7 @@ export default function Intro({ id }: Props) {
         <span className="cursorText">{hoverItem}</span>
       </motion.div>
       <ul className="flex flex-col gap-[10px] w-[90%]">
-        {NAVIGATION_LIST.map(({ subTitle, title, targetId }) => (
+        {NAVIGATION_LIST.map(({ subTitle, title, targetId, imgSrc }) => (
           <li key={title} className="flex flex-col gap-[10px]">
             <span>{subTitle}</span>
             <a
@@ -86,7 +86,9 @@ export default function Intro({ id }: Props) {
               onMouseEnter={() => {
                 if (isMoving) return
                 handleItemEnter(
-                  <img className="w-full" src="/sample.png" alt="" />,
+                  <div className="shadow-2xl">
+                    <img className="w-full" src={imgSrc} alt="" />
+                  </div>,
                 )
               }}
               onMouseLeave={handleItemLeave}

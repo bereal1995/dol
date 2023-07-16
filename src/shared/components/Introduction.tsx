@@ -2,14 +2,15 @@ import { useLayoutEffect, useRef } from 'react'
 
 import { gsap, ScrollTrigger } from 'gsap/all'
 
+import Spacing from './Spacing'
+
 import { SECTION_CREATOR_LIST_CONTENT } from '@/home/constants'
 import { Icons } from '@/shared/components/Icons'
-import Spacing from '@/shared/components/Spacing'
 import TextMask from '@/shared/components/TextMask'
 
 gsap.registerPlugin(ScrollTrigger)
 
-export default function Introduction({ id }: { id: string }) {
+export default function Introduction() {
   const triggerRef = useRef<HTMLDivElement | null>(null)
 
   useLayoutEffect(() => {
@@ -54,8 +55,8 @@ export default function Introduction({ id }: { id: string }) {
   }, [])
 
   return (
-    <div className="relative overflow-hidden bg-[#181818]" id={id}>
-      <div className="absolute top-[10%] left-[50%] z-[10] flex justify-center translate-x-[-50%]">
+    <div className="relative overflow-hidden bg-[#181818]">
+      <div className="absolute top-[10%] w-full h-[100vh] z-[10] flex justify-center">
         <div className="max-w-[500px] flex flex-col text-center text-[#ffffff] leading-8 text-shiny">
           <h3 className="flex justify-center">
             <Icons.Logo className="w-[200px] fill-white" />
@@ -88,7 +89,7 @@ export default function Introduction({ id }: { id: string }) {
               target="_blank"
               className="flex w-full h-full"
               style={{
-                background: `url(/src/assets/images/${creator}.png) center / cover no-repeat`,
+                background: `url(./assets/images/${creator}.png) center / cover no-repeat`,
               }}
             ></a>
           </div>
