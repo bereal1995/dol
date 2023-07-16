@@ -111,7 +111,7 @@ export default function VoteList({
     <Container>
       <motion.div
         variants={variants}
-        className="dol-cursor max-w-[200px]"
+        className="dol-cursor"
         animate={cursorVariant}
         transition={{
           type: 'spring',
@@ -121,7 +121,7 @@ export default function VoteList({
       >
         <span className="cursorText">{cursorText}</span>
       </motion.div>
-      <div className="flex justify-around gap-[60px]">
+      <div className="flex justify-around gap-[10px] md:gap-[60px]">
         {voteOptions?.map((voteOption) => {
           const isVoted = votedData?.id === voteOption.id
           const hasVoted = votedData?.hasVoted
@@ -146,8 +146,8 @@ export default function VoteList({
 }
 
 const Container = styled.div`
-  width: 100%;
-  max-width: 1200px;
+  width: 70vw;
+
   .dol-cursor {
     position: fixed;
     z-index: 100;

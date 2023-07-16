@@ -11,16 +11,16 @@ export default function SectionIntro({ content }: Props) {
   const { title, description, imgSrc } = content
 
   return (
-    <div className="pl-[60px] pr-[240px]">
+    <div className="pl-[30px] pr-[90px] md:pr-[240px]">
       <div>
         <CurtainMotionImage
-          className="relative overflow-hidden w-full min-h-[300px] max-h-[500px] mb-[60px]"
+          className="relative overflow-hidden w-full max-h-[500px] mb-[60px]"
           margin="-200px"
         >
           <img src={imgSrc} alt="" />
         </CurtainMotionImage>
       </div>
-      <div className="flex justify-between items-end gap-[20%]">
+      <div className="flex flex-wrap justify-between items-end gap-[20%] gap-y-[30px]">
         <SectionIntroTitle title={title} />
         <SectionIntroDesc description={description} />
       </div>

@@ -50,7 +50,7 @@ export default function SectionInfoLinkListItem({
         <div className="relative overflow-hidden shrink-0 grow-0">
           <CurtainMotionImage margin="-130px">
             <div
-              className="w-[500px] h-[300px]"
+              className="w-[300px] h-[100px] md:w-[500px] md:h-[300px]"
               style={{
                 background: `url(${imgSrc}) center center / cover no-repeat`,
               }}
@@ -59,7 +59,7 @@ export default function SectionInfoLinkListItem({
         </div>
         <TextContainer>
           <TextContent>
-            <TextItem className="hover:font-diphylleia hover-text-shadow">
+            <TextItem className="md:text-[30px] text-[14px] hover:font-diphylleia hover-text-shadow">
               {text}
             </TextItem>
             <div>
@@ -87,6 +87,7 @@ const Container = styled.a`
 `
 const TextContainer = styled.div`
   display: flex;
+  flex-shrink: 1;
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
@@ -102,10 +103,7 @@ const TextContent = styled.div`
   }
 `
 
-const TextItem = styled.div`
-  font-size: 30px;
-  max-width: 80%;
-`
+const TextItem = styled.div``
 const TextDate = styled.div`
   font-size: 15px;
 `

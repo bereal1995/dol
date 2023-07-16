@@ -101,8 +101,7 @@ const Container = styled(motion.div)<{
   isNotVotedWithHasVoted?: boolean
 }>`
   position: relative;
-  width: 300px;
-  height: 300px;
+  width: 100%;
 
   cursor: ${({ disabled, isNotVotedWithHasVoted }) => {
     if (isNotVotedWithHasVoted) return 'auto'
@@ -116,8 +115,6 @@ const Container = styled(motion.div)<{
 
     img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
     }
   }
 `

@@ -15,7 +15,7 @@ export default function SectionInfoIntroList({ contents }: Props) {
         return (
           <React.Fragment key={content.id}>
             <SectionInfoIntro content={content} />
-            <Spacing size={300} />
+            <Spacing size={100} />
           </React.Fragment>
         )
       })}

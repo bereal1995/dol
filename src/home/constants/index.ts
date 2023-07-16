@@ -142,7 +142,6 @@ export const SECTION_CREATOR_LIST_CONTENT: string[] = [
   'jessoowrite.webp',
   'sehooninseoul.webp',
   'seounu.webp',
-  'squarksleeq.webp',
   'them.webp',
   'kimdajeong.webp',
   'kokojournal.webp',

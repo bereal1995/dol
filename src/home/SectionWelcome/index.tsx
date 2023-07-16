@@ -56,7 +56,7 @@ export default function Introduction({ id }: { id: string }) {
   return (
     <div className="relative overflow-hidden bg-[#181818]" id={id}>
       <div className="absolute top-[10%] left-[50%] z-[10] flex justify-center translate-x-[-50%]">
-        <div className="max-w-[500px] flex flex-col text-center text-[#ffffff] leading-8 text-shiny">
+        <div className="w-[70vw] max-w-[500px] flex flex-col text-center text-[#ffffff] leading-8 text-shiny">
           <h3 className="flex justify-center">
             <Icons.Logo className="w-[200px] fill-white" />
           </h3>
@@ -88,7 +88,7 @@ export default function Introduction({ id }: { id: string }) {
           return (
             <div
               key={index}
-              className="card overflow-hidden w-[300px] h-[300px] bg-white"
+              className="card overflow-hidden w-[150px] h-[150px] md:w-[300px] md:h-[300px] bg-white"
             >
               <a
                 href={`https://www.steadio.co/creator/${permalink}`}

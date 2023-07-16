@@ -1,6 +1,6 @@
 export default function TextMask() {
   return (
-    <div className="relative shadow-md z-[10] w-full h-full overflow-hidden">
+    <div className="hidden md:block relative shadow-md z-[10] w-full h-full overflow-hidden">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 285 80"
@@ -19,19 +19,31 @@ export default function TextMask() {
                 mask: 'url(#mask)',
               }}
             />
-            <text x="72" y="20" className="text-[14px] font-bold">
+            <text
+              x="20%"
+              y="20"
+              className="text-[6px] md:text-[14px] font-bold"
+            >
               우리가 만드는
             </text>
-            <text x="72" y="35" className="text-[14px] font-diphylleia">
+            <text
+              x="20%"
+              y="35"
+              className="text-[6px] md:text-[14px] font-diphylleia"
+            >
               (창작의 변화)
             </text>
-            <text x="72" y="50" className="text-[14px] font-bold">
+            <text
+              x="20%"
+              y="50"
+              className="text-[6px] md:text-[14px] font-bold"
+            >
               what we make
             </text>
             <text
-              x="72"
+              x="20%"
               y="65"
-              className="text-[15px] leading-3 font-diphylleia"
+              className="text-[6px] md:text-[15px] leading-3 font-diphylleia"
             >
               a change in creation.
             </text>

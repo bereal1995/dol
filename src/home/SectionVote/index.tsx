@@ -13,7 +13,7 @@ export default function SectionVote({ id }: Props) {
     useCursorItem()
 
   return (
-    <Container ref={ref} id={id}>
+    <Container ref={ref} id={id} className="py-[50px] md:py-0 md:h-[100vh]">
       <BG />
       <div className="flex flex-col relative z-[10] text-center">
         <h3 className="text-[40px] font-diphylleia text-shadow">
@@ -37,7 +37,7 @@ export default function SectionVote({ id }: Props) {
 
 function BG() {
   return (
-    <div id="bg-wrap" className="absolute top-0 left-0 w-full h-[100vh]">
+    <div id="bg-wrap" className="absolute top-0 left-0 w-full md:h-[100vh]">
       <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
         <defs>
           <radialGradient
@@ -187,7 +187,6 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
   margin-left: -60px;
   position: relative;
   overflow: hidden;

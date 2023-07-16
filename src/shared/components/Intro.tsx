@@ -1,4 +1,3 @@
-// test
 import { useState } from 'react'
 
 import styled from '@emotion/styled'
@@ -32,8 +31,8 @@ export default function Intro({ id }: Props) {
       width: 'auto',
       height: 'auto',
       fontSize: '18px',
-      x: mousePosition.x - 32,
-      y: mousePosition.y - 32,
+      x: mousePosition.x + 32,
+      y: mousePosition.y + 32,
       textShadow: '0 0 10px rgba(0, 0, 0, 0.5)',
       color: '#fff',
     },
@@ -62,7 +61,7 @@ export default function Intro({ id }: Props) {
     <Container
       ref={ref}
       id={id}
-      className="absolute top-0 left-0 flex items-center w-full h-[100vh] pl-[80px]"
+      className="absolute top-0 left-0 flex items-center w-full h-[100vh] py-[80px] md:py-0 pl-[80px]"
     >
       <motion.div
         variants={variants}
@@ -82,7 +81,7 @@ export default function Intro({ id }: Props) {
             <span>{subTitle}</span>
             <a
               href={`#${targetId}`}
-              className="flex w-full border-t-[1px] border-black text-[100px] hover:font-diphylleia hover-text-shadow hover:text-white"
+              className="flex w-full border-t-[1px] border-black text-[50px] md:text-[100px] hover:font-diphylleia hover-text-shadow hover:text-white"
               onMouseEnter={() => {
                 if (isMoving) return
                 handleItemEnter(
@@ -127,7 +126,10 @@ function ThreeBG() {
     antialias: true,
   })
   renderer.setSize(window.innerWidth, window.innerHeight)
-  document.body.prepend(renderer.domElement)
+
+  if (window.innerWidth >= 1024) {
+    document.body.prepend(renderer.domElement)
+  }
 
   //===================================================== scene
   const scene = new THREE.Scene()

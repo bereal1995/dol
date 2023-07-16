@@ -21,12 +21,12 @@ export default function Home() {
       <div>
         <Intro id="dol-intro" />
         <SectionWelcome id="dol-welcome" />
-        <Spacing size={300} />
+        <Spacing size={100} />
         <div id="dol-info">
           <SectionInfoIntroList contents={SECTION_INFO_CONTENT_LIST} />
           <SectionInfoLinkList contents={SECTION_INFO_LINK_CONTENT_LIST} />
         </div>
-        <Spacing size={200} />
+        <Spacing size={100} />
         <SectionVote id="dol-vote" />
         <Spacing size={0} />
         <SectionPadlet id="dol-comment" />
