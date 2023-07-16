@@ -80,7 +80,7 @@ export default function Introduction({ id }: { id: string }) {
       <div ref={triggerRef} className="grid grid-cols-3 gap-[10px]">
         {SECTION_CREATOR_LIST_CONTENT.map((creator, index) => {
           const imgUrl = new URL(
-            `/src/assets/images/${creator}.png`,
+            `/src/assets/images/${creator}`,
             import.meta.url,
           ).href
 
