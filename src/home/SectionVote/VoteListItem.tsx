@@ -88,7 +88,7 @@ export default function VoteListItem({
       <button disabled={isVoted} {...rest}>
         <img src={imageUrl} alt="" />
         <Spacing size={20} />
-        <span className="bg-[rgba(0,0,0,0.5)] text-[14px] text-white py-[5px] px-[10px] rounded-full">
+        <span className="bg-[rgba(0,0,0,0.5)] text-[10px] md:text-[14px] text-white py-[5px] px-[10px] rounded-full">
           {voteOption.title}
         </span>
       </button>
