@@ -3,7 +3,6 @@ import { useLayoutEffect, useRef } from 'react'
 import { gsap, ScrollTrigger } from 'gsap/all'
 
 import { SECTION_CREATOR_LIST_CONTENT } from '@/home/constants'
-import { Icons } from '@/shared/components/Icons'
 import Spacing from '@/shared/components/Spacing'
 import TextMask from '@/shared/components/TextMask'
 
@@ -57,9 +56,7 @@ export default function Introduction({ id }: { id: string }) {
     <div className="relative overflow-hidden bg-[#181818]" id={id}>
       <div className="absolute top-[10%] left-[50%] z-[10] flex justify-center translate-x-[-50%]">
         <div className="max-w-[500px] flex flex-col text-center text-[#ffffff] leading-8 text-shiny">
-          <h3 className="flex justify-center">
-            <Icons.Logo className="w-[200px] fill-white" />
-          </h3>
+          <h3>steadio logo</h3>
           <Spacing size={50} />
           <div className="font-bold">JUL 2022</div>
           <Spacing size={50} />
@@ -78,21 +75,28 @@ export default function Introduction({ id }: { id: string }) {
         </div>
       </div>
       <div ref={triggerRef} className="grid grid-cols-3 gap-[10px]">
-        {SECTION_CREATOR_LIST_CONTENT.map((creator, index) => (
-          <div
-            key={index}
-            className="card overflow-hidden w-[300px] h-[300px] bg-white"
-          >
-            <a
-              href={`https://www.steadio.co/creator/${creator}`}
-              target="_blank"
-              className="flex w-full h-full"
-              style={{
-                background: `url(/assets/images/${creator}.png) center / cover no-repeat`,
-              }}
-            ></a>
-          </div>
-        ))}
+        {SECTION_CREATOR_LIST_CONTENT.map((creator, index) => {
+          const imgUrl = new URL(
+            `/src/assets/images/${creator}.png`,
+            import.meta.url,
+          ).href
+
+          return (
+            <div
+              key={index}
+              className="card overflow-hidden w-[300px] h-[300px] bg-white"
+            >
+              <a
+                href={`https://www.steadio.co/creator/${creator}`}
+                target="_blank"
+                className="flex w-full h-full"
+                style={{
+                  background: `url(${imgUrl}) center / cover no-repeat`,
+                }}
+              ></a>
+            </div>
+          )
+        })}
       </div>
       <div className="absolute bottom-[10%] w-full h-[80vh]">
         <TextMask />

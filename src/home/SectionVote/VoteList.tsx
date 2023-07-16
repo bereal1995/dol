@@ -102,9 +102,9 @@ export default function VoteList({
   }, [])
 
   const voteImages: VoteImages = {
-    1: '/assets/images/money.png',
-    2: '/assets/images/speed.png',
-    3: '/assets/images/community.png',
+    1: new URL('/src/assets/images/money.png', import.meta.url).href,
+    2: new URL('/src/assets/images/speed.png', import.meta.url).href,
+    3: new URL('/src/assets/images/community.png', import.meta.url).href,
   }
 
   return (

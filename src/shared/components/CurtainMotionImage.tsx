@@ -5,7 +5,7 @@ import { motion, useInView, Variants } from 'framer-motion'
 
 export default function CurtainMotionImage({
   className,
-  imgSrc = '/assets/images/launch.png',
+  imgSrc = '/src/assets/images/launch.png',
   margin,
 }: {
   imgSrc?: string
@@ -14,7 +14,6 @@ export default function CurtainMotionImage({
 }) {
   const ref = useRef<HTMLImageElement>(null)
   const isInView = useInView(ref, { once: true, margin })
-  const imgUrl = new URL(imgSrc, import.meta.url).href
 
   const variants: Variants = {
     hidden: {
@@ -41,7 +40,7 @@ export default function CurtainMotionImage({
         ref={ref}
         className="w-[500px] h-[300px]"
         style={{
-          background: `url(${imgUrl}) center center / cover no-repeat`,
+          background: `url(${imgSrc}) center center / cover no-repeat`,
         }}
       />
     </motion.div>
