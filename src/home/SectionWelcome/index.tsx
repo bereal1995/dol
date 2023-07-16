@@ -83,6 +83,7 @@ export default function Introduction({ id }: { id: string }) {
             `/src/assets/images/${creator}`,
             import.meta.url,
           ).href
+          const [permalink] = creator.split('.')
 
           return (
             <div
@@ -90,7 +91,7 @@ export default function Introduction({ id }: { id: string }) {
               className="card overflow-hidden w-[300px] h-[300px] bg-white"
             >
               <a
-                href={`https://www.steadio.co/creator/${creator}`}
+                href={`https://www.steadio.co/creator/${permalink}`}
                 target="_blank"
                 className="flex w-full h-full"
                 style={{
