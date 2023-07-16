@@ -26,7 +26,7 @@ export default function FixedMenu() {
         <ul className="flex-col gap-[100px] px-[10px] py-[20px]">
           {SIDE_NAVIGATION_LIST.map(({ targetId, title, subTitle }) => {
             return (
-              <li key={targetId} className="writing-vertical-r mb-[50px]">
+              <li key={title} className="writing-vertical-r mb-[50px]">
                 <a href={`#${targetId}`}>
                   <span className="text-[10px]">{subTitle}</span>
                   <br />

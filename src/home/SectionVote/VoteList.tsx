@@ -102,9 +102,9 @@ export default function VoteList({
   }, [])
 
   const voteImages: VoteImages = {
-    1: '/src/assets/images/money.png',
-    2: '/src/assets/images/speed.png',
-    3: '/src/assets/images/community.png',
+    1: '/assets/images/money.png',
+    2: '/assets/images/speed.png',
+    3: '/assets/images/community.png',
   }
 
   return (

@@ -11,7 +11,7 @@ export default function SectionInfoLinkList({ contents }: Props) {
   return (
     <Container>
       {contents.map((content) => {
-        return <SectionInfoLinkListItem {...content} />
+        return <SectionInfoLinkListItem key={content.text} {...content} />
       })}
     </Container>
   )

@@ -88,7 +88,7 @@ export default function Introduction({ id }: { id: string }) {
               target="_blank"
               className="flex w-full h-full"
               style={{
-                background: `url(/src/assets/images/${creator}.png) center / cover no-repeat`,
+                background: `url(/assets/images/${creator}.png) center / cover no-repeat`,
               }}
             ></a>
           </div>
