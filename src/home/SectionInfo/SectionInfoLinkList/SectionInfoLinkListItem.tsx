@@ -47,7 +47,7 @@ export default function SectionInfoLinkListItem({
         onMouseEnter={() => handleMouseEnter(creatorName)}
         onMouseLeave={handleMouseLeave}
       >
-        <div className="relative overflow-hidden">
+        <div className="relative overflow-hidden shrink-0 grow-0">
           <CurtainMotionImage imgSrc={imgSrc} margin="-130px" />
         </div>
         <TextContainer>

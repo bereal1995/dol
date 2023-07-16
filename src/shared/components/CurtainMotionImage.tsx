@@ -36,11 +36,12 @@ export default function CurtainMotionImage({
           delay: 0.4,
         }}
       />
-      <img
+      <div
         ref={ref}
-        src={imgSrc}
-        alt="스테디오 이미지"
-        className="block w-full"
+        className="w-[500px] h-[300px]"
+        style={{
+          background: `url(${imgSrc}) center center / cover no-repeat`,
+        }}
       />
     </motion.div>
   )
