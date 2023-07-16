@@ -88,16 +88,18 @@ export default function Introduction({ id }: { id: string }) {
           return (
             <div
               key={index}
-              className="card overflow-hidden w-[150px] h-[150px] md:w-[300px] md:h-[300px] bg-white"
+              className="card w-[150px] h-[150px] md:w-[300px] md:h-[300px] bg-white"
             >
               <a
                 href={`https://www.steadio.co/creator/${permalink}`}
                 target="_blank"
-                className="flex w-full h-full"
+                className="relative flex w-full h-full"
                 style={{
                   background: `url(${imgUrl}) center / cover no-repeat`,
                 }}
-              ></a>
+              >
+                <span className="absolute top-0 left-0 w-full h-full bg-[rgba(0,0,0,.5)] hover:bg-transparent transition-all hover:shadow-xl hover:shadow-purple-50" />
+              </a>
             </div>
           )
         })}
