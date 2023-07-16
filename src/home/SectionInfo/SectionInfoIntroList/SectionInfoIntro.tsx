@@ -14,7 +14,7 @@ export default function SectionIntro({ content }: Props) {
     <div className="pl-[30px] pr-[90px] md:pr-[240px]">
       <div>
         <CurtainMotionImage
-          className="relative overflow-hidden w-full max-h-[500px] mb-[60px]"
+          className="relative overflow-hidden w-full max-h-[400px] mb-[60px]"
           margin="-200px"
         >
           <img src={imgSrc} alt="" />
