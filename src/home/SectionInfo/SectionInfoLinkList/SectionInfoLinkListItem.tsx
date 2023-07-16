@@ -7,7 +7,6 @@ import { motion, useInView } from 'framer-motion'
 import { ISectionInfoLinkContent } from '@/home/constants'
 import { useCursor } from '@/home/provider/CursorProvider'
 import CurtainMotionImage from '@/shared/components/CurtainMotionImage'
-import { Colors } from '@/shared/theme/colors'
 
 export default function SectionInfoLinkListItem({
   text,
@@ -109,14 +108,14 @@ const CursorItemContainer = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
-  top: 10px;
-  left: 45px;
-  padding: 3px 5px;
-  border: 1px solid #000;
+  top: 30px;
+  left: 70px;
+  padding: 5px;
   border-radius: 10px;
-  background-color: ${Colors.primary};
+  background: rgba(126, 105, 254, 0.9);
   font-size: 10px;
   line-height: 1;
+  transform: rotate(15deg);
 `
 
 function HoverCursorItem({ text }: { text: string }) {
